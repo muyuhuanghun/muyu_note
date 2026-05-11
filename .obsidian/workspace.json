@@ -11,14 +11,10 @@
             "id": "3643c9cb5daf9ec1",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "README"
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "关系图谱"
             }
           }
         ]
@@ -107,6 +103,29 @@
             }
           },
           {
+            "id": "5d15baf19dd22b55",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "出链"
+            }
+          },
+          {
+            "id": "c5311f2765ada872",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          },
+          {
             "id": "e37f8da577a505f2",
             "type": "leaf",
             "state": {
@@ -141,27 +160,16 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "README 的大纲"
-            }
-          },
-          {
-            "id": "c5311f2765ada872",
-            "type": "leaf",
-            "state": {
-              "type": "git-view",
-              "state": {},
-              "icon": "git-pull-request",
-              "title": "Source Control"
+              "title": "大纲"
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 2
       }
     ],
     "direction": "horizontal",
@@ -177,13 +185,30 @@
       "command-palette:打开命令面板": false,
       "bases:新建数据库": false,
       "markdown-importer:打开 Markdown 格式转换器": false,
-      "obsidian-git:Open Git source control": false
+      "obsidian-git:Open Git source control": false,
+      "workspaces:管理工作区布局": false
     }
   },
   "active": "c5311f2765ada872",
   "lastOpenFiles": [
+    "LLAMA.CPP/如何用llama.cpp本地运行大模型(开始体验).md",
+    "GOOGLE INFO/Google Count.md",
+    "PHOTOS/Pasted image 20260511215433.png",
+    "README.md",
+    "PHOTOS/Pasted image 20260511205541.png",
+    "LLAMA.CPP/如何使用llama.cpp(前期准备).md",
+    "Github/Github Base Info.md",
+    "PHOTOS/Pasted image 20260511202449.png",
+    "PHOTOS",
+    "LLAMA.CPP",
+    "TENCENT INFO",
+    "GOOGLE INFO",
+    "UESTC INFO",
     "创建链接.md",
     "欢迎.md",
-    "README.md"
+    "Github",
+    "UESTC INFO/UESTC mail.md",
+    "TENCENT INFO/QQ.md",
+    "Github/GitHub_token.canvas"
   ]
 }
