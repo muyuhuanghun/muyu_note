@@ -11,13 +11,31 @@
             "id": "3643c9cb5daf9ec1",
             "type": "leaf",
             "state": {
+              "type": "canvas",
+              "state": {
+                "file": "基于pytorch的深度学习/1.OVERVIEW.canvas",
+                "viewState": {
+                  "x": -116.65341937718269,
+                  "y": 337.5128996516587,
+                  "zoom": -0.73642261522081
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "1.OVERVIEW"
+            }
+          },
+          {
+            "id": "fa8ca4744725797d",
+            "type": "leaf",
+            "state": {
               "type": "graph",
               "state": {},
               "icon": "lucide-git-fork",
               "title": "关系图谱"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -36,7 +54,7 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical",
+                "sortOrder": "byCreatedTimeReverse",
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
@@ -189,26 +207,40 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "c5311f2765ada872",
+  "active": "fa8ca4744725797d",
   "lastOpenFiles": [
-    "LLAMA.CPP/如何用llama.cpp本地运行大模型(开始体验).md",
-    "GOOGLE INFO/Google Count.md",
     "PHOTOS/Pasted image 20260511215433.png",
-    "README.md",
     "PHOTOS/Pasted image 20260511205541.png",
-    "LLAMA.CPP/如何使用llama.cpp(前期准备).md",
-    "Github/Github Base Info.md",
     "PHOTOS/Pasted image 20260511202449.png",
+    "基于pytorch的深度学习/1.OVERVIEW.canvas",
+    "基于pytorch的深度学习/scikit-learn.png",
+    "基于pytorch的深度学习/1.overview_1.md",
+    "微积分/微积分.md",
+    "线性代数/线性代数基础.md",
+    "微积分",
+    "线性代数",
+    "未命名.canvas",
+    "OPENAI_GPT_CODEX/CODEX.md",
+    "LLAMA.CPP/如何用llama.cpp本地运行大模型(开始体验).md",
+    "LLAMA.CPP/如何使用llama.cpp(前期准备).md",
+    "AI_CODING/如何在各种ide中使用ai_agent进行ai_coding.md",
+    "GOOGLE INFO/Google Count.md",
+    "Github/GitHub_token.canvas",
+    "基于pytorch的深度学习",
+    "Github/Github Base Info.md",
+    "OPENAI_GPT_CODEX",
+    "ANTHROPIC/CLAUDE CODE+DEEPSEEK.md",
+    "ANTHROPIC",
+    "Github/COLPILOT.md",
+    "AI_CODING",
+    "README.md",
     "PHOTOS",
     "LLAMA.CPP",
     "TENCENT INFO",
     "GOOGLE INFO",
-    "UESTC INFO",
     "创建链接.md",
     "欢迎.md",
-    "Github",
     "UESTC INFO/UESTC mail.md",
-    "TENCENT INFO/QQ.md",
-    "Github/GitHub_token.canvas"
+    "TENCENT INFO/QQ.md"
   ]
 }
