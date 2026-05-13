@@ -4,38 +4,27 @@
     "type": "split",
     "children": [
       {
-        "id": "148b047648740c50",
+        "id": "759ee7824a11b0f5",
         "type": "tabs",
         "children": [
           {
-            "id": "3643c9cb5daf9ec1",
+            "id": "9531967f29e2a457",
             "type": "leaf",
             "state": {
               "type": "canvas",
               "state": {
-                "file": "基于pytorch的深度学习/1.OVERVIEW.canvas",
+                "file": "基于pytorch的深度学习/2.线性模型.canvas",
                 "viewState": {
-                  "x": -116.65341937718269,
-                  "y": 337.5128996516587,
-                  "zoom": -0.73642261522081
+                  "x": 925,
+                  "y": 420,
+                  "zoom": -1.1183241343887123
                 }
               },
               "icon": "lucide-layout-dashboard",
-              "title": "1.OVERVIEW"
-            }
-          },
-          {
-            "id": "fa8ca4744725797d",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
+              "title": "2.线性模型"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -207,23 +196,40 @@
       "workspaces:管理工作区布局": false
     }
   },
-  "active": "fa8ca4744725797d",
+  "active": "9531967f29e2a457",
   "lastOpenFiles": [
-    "PHOTOS/Pasted image 20260511215433.png",
-    "PHOTOS/Pasted image 20260511205541.png",
-    "PHOTOS/Pasted image 20260511202449.png",
+    "基于pytorch的深度学习/2.线性模型.canvas",
+    "基于pytorch的深度学习/2.线性模型.md",
+    "Pasted image 20260513211120.png",
     "基于pytorch的深度学习/1.OVERVIEW.canvas",
-    "基于pytorch的深度学习/scikit-learn.png",
     "基于pytorch的深度学习/1.overview_1.md",
+    "LLAMA.CPP/llama.cpp photos/Pasted image 20260511215433.png",
+    "AI_CODING/ai coding photos",
+    "LLAMA.CPP/llama.cpp photos/Pasted image 20260511205541.png",
+    "LLAMA.CPP/llama.cpp photos/Pasted image 20260511202449.png",
+    "Github/GitHub学生认证.md",
+    "Github/COLPILOT.md",
+    "Github/GitHub photos/Pasted image 20260513194820.png",
+    "Github/GitHub photos",
+    "AI_CODING/如何在各种ide中使用ai agent进行ai coding.md",
+    "Github/Pasted image 20260513195447.png",
+    "Github/GitHub photos/Pasted image 20260513195451.png",
+    "Github/GitHub photos/Pasted image 20260513195650.png",
+    "科学上网/VPN BASE SET.md",
+    "服务器与VPS",
+    "科学上网",
+    "AI_CODING/NIM4CC的使用及复刻.md",
+    "AI_CODING/ai coding photos/Pasted image 20260513190912.png",
+    "AI_CODING/ai coding photos/Pasted image 20260513191630.png",
+    "程序与算法设计/成都地铁交通简易.canvas",
+    "程序与算法设计",
+    "OPENAI_GPT_CODEX/CODEX.md",
+    "LLAMA.CPP/如何用llama.cpp本地运行大模型(开始体验).md",
+    "LLAMA.CPP/如何使用llama.cpp(前期准备).md",
     "微积分/微积分.md",
     "线性代数/线性代数基础.md",
     "微积分",
     "线性代数",
-    "未命名.canvas",
-    "OPENAI_GPT_CODEX/CODEX.md",
-    "LLAMA.CPP/如何用llama.cpp本地运行大模型(开始体验).md",
-    "LLAMA.CPP/如何使用llama.cpp(前期准备).md",
-    "AI_CODING/如何在各种ide中使用ai_agent进行ai_coding.md",
     "GOOGLE INFO/Google Count.md",
     "Github/GitHub_token.canvas",
     "基于pytorch的深度学习",
@@ -231,13 +237,7 @@
     "OPENAI_GPT_CODEX",
     "ANTHROPIC/CLAUDE CODE+DEEPSEEK.md",
     "ANTHROPIC",
-    "Github/COLPILOT.md",
-    "AI_CODING",
     "README.md",
-    "PHOTOS",
-    "LLAMA.CPP",
-    "TENCENT INFO",
-    "GOOGLE INFO",
     "创建链接.md",
     "欢迎.md",
     "UESTC INFO/UESTC mail.md",
