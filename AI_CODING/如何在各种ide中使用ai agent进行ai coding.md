@@ -10,6 +10,13 @@
 
 电脑本地需要npm包管理器，以及node.js[[Node.js — 在任何地方运行 JavaScript](https://nodejs.org/zh-cn)
 
+npm直安装
+
+```
+curl -qL https://www.npmjs.com/install.sh | sh
+```
+
+
 在vscode或者其他ide中安装codex插件，打开cmd确认npm正确安装
 
 ```
@@ -58,3 +65,12 @@ codex --version
 
 ## 1.[[GitHub学生认证]]
 - 详见该篇笔记内部
+
+## 2.COPILOT使用
+- 设置及登录操作见[[COLPILOT]]
+- copilot cli界面和Claude code 近乎一致，合理认为copilot cli基于泄露的Claude code源码魔改得到
+
+
+
+# 三.[[CLAUDE CODE+DEEPSEEK]]
+
