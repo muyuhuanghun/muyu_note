@@ -41,11 +41,12 @@
 		{"id":"1878f0b22f3ce01d","type":"text","text":"Computational Graph of Linear Model","x":-403,"y":1440,"width":250,"height":53},
 		{"id":"80530b2fb56bc3c1","type":"text","text":"linear model","x":-100,"y":1437,"width":250,"height":60},
 		{"id":"bdbd6dfb241083e5","type":"text","text":"$$\n\\hat{y} = x * \\omega\n$$","x":204,"y":1437,"width":250,"height":60},
-		{"id":"a2f43f50b03a99d5","type":"file","file":"computation graph of linear model.png","x":-583,"y":1640,"width":608,"height":317},
+		{"id":"a2f43f50b03a99d5","type":"file","file":"基于pytorch的深度学习/pythorch photos/computation graph of linear model.png","x":-583,"y":1640,"width":608,"height":317},
 		{"id":"52994260dc19109a","type":"text","text":"In Pytorch","x":444,"y":1743,"width":287,"height":112},
 		{"id":"132a27504b28f5f6","type":"text","text":"tensor张量","x":831,"y":1769,"width":250,"height":60},
 		{"id":"fbf06e07d50ec744","type":"text","text":"用于保存计算图中所需的所有数据","x":1220,"y":1769,"width":250,"height":60},
-		{"id":"0c896e069955dcad","type":"file","file":"基于pytorch的深度学习/4.BACK PROPAGATION.md","x":425,"y":2000,"width":1062,"height":806}
+		{"id":"0c896e069955dcad","type":"file","file":"基于pytorch的深度学习/4.BACK PROPAGATION.md","x":425,"y":2000,"width":1062,"height":806},
+		{"id":"7fea2ae861dd4122","x":-404,"y":-480,"width":250,"height":60,"type":"text","text":"[[5.Linear Regression With Pytorch.canvas]]"}
 	],
 	"edges":[
 		{"id":"8ba2c07e54c06822","fromNode":"681cd84bf1e2c8b6","fromSide":"bottom","toNode":"f8585484f6ab689b","toSide":"top"},
@@ -97,6 +98,7 @@
 		{"id":"9181e290b74b9070","fromNode":"fba29d71a8726d0f","fromSide":"left","toNode":"52994260dc19109a","toSide":"top"},
 		{"id":"7347349dce76012b","fromNode":"52994260dc19109a","fromSide":"right","toNode":"132a27504b28f5f6","toSide":"left"},
 		{"id":"e79ca22aaa3c8be1","fromNode":"fbf06e07d50ec744","fromSide":"left","toNode":"132a27504b28f5f6","toSide":"right"},
-		{"id":"a544fbf482d7ffe9","fromNode":"132a27504b28f5f6","fromSide":"bottom","toNode":"0c896e069955dcad","toSide":"top"}
+		{"id":"a544fbf482d7ffe9","fromNode":"132a27504b28f5f6","fromSide":"bottom","toNode":"0c896e069955dcad","toSide":"top"},
+		{"id":"4435b8fa893bf2a0","fromNode":"fba29d71a8726d0f","fromSide":"top","toNode":"7fea2ae861dd4122","toSide":"bottom"}
 	]
 }
