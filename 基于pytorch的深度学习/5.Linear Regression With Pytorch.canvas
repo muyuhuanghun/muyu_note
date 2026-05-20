@@ -4,7 +4,6 @@
 		{"id":"73853394c5468dfe","type":"text","text":"neuro net","x":140,"y":-280,"width":250,"height":60},
 		{"id":"1c41f4cbdbff8b6f","type":"text","text":"loss","x":140,"y":-200,"width":250,"height":60},
 		{"id":"905aa003a94e8c38","type":"text","text":"sgd","x":140,"y":-120,"width":250,"height":60},
-		{"id":"0ddcc0350b3be27f","type":"text","text":"5.Linear Regression with Pytorch","x":-580,"y":-280,"width":250,"height":60},
 		{"id":"8261c4355a5b1d7d","type":"text","text":"1.prepare dataset","x":-200,"y":36,"width":250,"height":60},
 		{"id":"a065e0dbe4414246","type":"text","text":"$$\n\\hat y = \\omega *x +b\n$$","x":100,"y":120,"width":250,"height":60},
 		{"id":"11fa91bb3b06965f","type":"text","text":"$$\nx \\in R , \\hat y \\in R\n$$","x":390,"y":120,"width":250,"height":60},
@@ -18,7 +17,6 @@
 		{"id":"42bc694f37494115","type":"text","text":"$$\nloss_2 = (\\hat y_2 - y_2)^2\n\n$$","x":100,"y":727,"width":250,"height":60,"color":"6"},
 		{"id":"930e83244497fba6","type":"text","text":"$$\nloss_3 = (\\hat y_3 - y_3)^2\n\n$$","x":100,"y":827,"width":250,"height":60,"color":"6"},
 		{"id":"ba40c9d6a02b09ae","type":"text","text":"$$\nloss_1 = (\\hat y_1 - y_1)^2\n\n$$","x":100,"y":620,"width":251,"height":60,"color":"6"},
-		{"id":"2b322c9117ce17bc","type":"text","text":"$$\n\\begin{bmatrix}\nloss_1 \\\\\nloss_2 \\\\\nloss_3 \\\\\n\\end{bmatrix}\n= \n(\n\\begin{bmatrix}\n\\hat y_1 \\\\\n\\hat y_2 \\\\\n\\hat y_3 \\\\\n\\end{bmatrix}\n-\n\\begin{bmatrix}\ny_1 \\\\\ny_2 \\\\\ny_3 \\\\\n\\end{bmatrix}\n)^2\n\n$$","x":390,"y":520,"width":290,"height":134,"color":"6"},
 		{"id":"8e28940b2c8bf3f6","type":"text","text":"人工求导数","x":780,"y":120,"width":250,"height":60},
 		{"id":"f4c28c38c18863fc","type":"text","text":"构造计算图","x":1116,"y":120,"width":250,"height":60},
 		{"id":"3590745595419b4e","type":"text","text":"Affine Model","x":780,"y":225,"width":250,"height":60},
@@ -49,9 +47,11 @@
 		{"id":"46803a3fc81ba284","type":"file","file":"基于pytorch的深度学习/pythorch photos/loss.png","x":179,"y":1960,"width":399,"height":116},
 		{"id":"1139d1a6ce46cc68","type":"file","file":"基于pytorch的深度学习/pythorch photos/loss_cost.png","x":179,"y":2120,"width":399,"height":190},
 		{"id":"611d488ef0c71af2","type":"text","text":"4.training cycle","x":-200,"y":2400,"width":250,"height":60},
-		{"id":"68a185aacc36372c","type":"text","text":"```\nfor epoch in range(100):\n\ty_pred = model(x_data)\n\tloss = criterion(y_pred,y_data)\n\tprint(epoch , loss)\n\t\n\toptimizer.zero_grad()\n\tloss.backward()\n\toptimizer.step()\n\t\nprint('w = ',model.linear.weight.item())\nprint('b = ',model.liner.bias.item())\n\nx_test = torch.Tensor([4.0])\ny_test = model(x_test)\nprint('y_pred = ',y_test.data)\n\n```","x":140,"y":2400,"width":600,"height":400},
+		{"id":"68a185aacc36372c","type":"text","text":"```\nfor epoch in range(100):\n\ty_pred = model(x_data)\n\tloss = criterion(y_pred,y_data)\n\tprint(epoch , loss)\n\t\n\toptimizer.zero_grad()\n\tloss.backward()\n\toptimizer.step()\n\t\nprint('w = ',model.linear.weight.item())\nprint('b = ',model.liner.bias.item())\n\nx_test = torch.Tensor([4.0])\ny_test = model(x_test)\nprint('y_pred = ',y_test.data)\n\n```","x":140,"y":2400,"width":609,"height":420},
 		{"id":"302a8d4ae9235604","type":"file","file":"基于pytorch的深度学习/pythorch photos/optimizer.png","x":660,"y":2151,"width":399,"height":128},
-		{"id":"3acd254cf45b9378","x":-1120,"y":1050,"width":616,"height":909,"type":"file","file":"基于pytorch的深度学习/5.Linear Regression With Pytorch.md"}
+		{"id":"3acd254cf45b9378","type":"file","file":"基于pytorch的深度学习/5.Linear Regression With Pytorch.md","x":-1120,"y":1050,"width":616,"height":909},
+		{"id":"fb42917d9e22159d","type":"text","text":"[[6.Logisitc Regression.canvas]]","x":-1580,"y":1475,"width":250,"height":60},
+		{"id":"2b322c9117ce17bc","type":"text","text":"$$\n\\begin{bmatrix}\nloss_1 \\\\\nloss_2 \\\\\nloss_3 \\\\\n\\end{bmatrix}\n= \n(\n\\begin{bmatrix}\n\\hat y_1 \\\\\n\\hat y_2 \\\\\n\\hat y_3 \\\\\n\\end{bmatrix}\n-\n\\begin{bmatrix}\ny_1 \\\\\ny_2 \\\\\ny_3 \\\\\n\\end{bmatrix}\n)^2\n\n$$","x":390,"y":520,"width":290,"height":134,"color":"6"}
 	],
 	"edges":[
 		{"id":"def08f8d010195e3","fromNode":"73853394c5468dfe","fromSide":"left","toNode":"6bf2e332d5a3e172","toSide":"right"},
@@ -86,6 +86,7 @@
 		{"id":"83c034a4e2210916","fromNode":"8261c4355a5b1d7d","fromSide":"left","toNode":"3acd254cf45b9378","toSide":"top"},
 		{"id":"68aa57e34774bba2","fromNode":"15074c3f5b18dfc7","fromSide":"left","toNode":"3acd254cf45b9378","toSide":"right"},
 		{"id":"04ca1944b269f4c3","fromNode":"d0969ff1f8c764f0","fromSide":"left","toNode":"3acd254cf45b9378","toSide":"right"},
-		{"id":"73fd909f1af7b56a","fromNode":"611d488ef0c71af2","fromSide":"left","toNode":"3acd254cf45b9378","toSide":"bottom"}
+		{"id":"73fd909f1af7b56a","fromNode":"611d488ef0c71af2","fromSide":"left","toNode":"3acd254cf45b9378","toSide":"bottom"},
+		{"id":"fce0be3691637674","fromNode":"3acd254cf45b9378","fromSide":"left","toNode":"fb42917d9e22159d","toSide":"right"}
 	]
 }
