@@ -11,10 +11,14 @@
             "id": "9531967f29e2a457",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "关系图谱"
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "README"
             }
           }
         ]
@@ -203,11 +207,12 @@
   },
   "active": "9531967f29e2a457",
   "lastOpenFiles": [
+    "README.md",
     "基于pytorch的深度学习/9.Softmax Classfier.md",
     "基于pytorch的深度学习/8.Dataset & Dataloader.canvas",
     "基于pytorch的深度学习/9.Softmax Classfier.canvas",
     "基于pytorch的深度学习/pythorch photos/whc.png",
-    "cross entropy one hot.png",
+    "基于pytorch的深度学习/pythorch photos/cross entropy one hot.png",
     "基于pytorch的深度学习/pythorch photos/softmax function.png",
     "基于pytorch的深度学习/pythorch photos/softmax 归一化.png",
     "基于pytorch的深度学习/1.overview_1.md",
