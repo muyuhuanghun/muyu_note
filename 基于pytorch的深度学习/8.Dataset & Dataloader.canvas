@@ -28,7 +28,8 @@
 		{"id":"3f532c6214d7b420","type":"text","text":"```\nclass DiabetesDataset(Dataset):\n\tdef__init__(self,filepath):\n\t\txy = np.loadtxt(filepath,delimiter=',',dtype = np.float32)\n\t\tself.len = xy.shape[0]\n\t\tself.x_data = torch.from_numpy(xy[:,:,-1])\n\t\tself.y_data = torch.from_numpy(xy[:,[-1]])\n\t\t\n\tdef__getitem__(self,index):\n\t\treturn self.x_data[index],self.y_data[index]\n\t\t\n\tdef__len__(self):\n\t\treturn self.len\n\t\t\ndataset = DiabetesDataset('diabetas.csv.gz')\ntrain_loader = DataLoader(dataset = dataset,batch_size=32,shuffle=Ture,num_wokers=2)\n```","x":60,"y":1760,"width":744,"height":440},
 		{"id":"edb9cefaae76a114","type":"text","text":"```\nfor epoch in range(100):\n\tfor i,data in enumcrate(train_loader,0):\n\t\t#1.prepare data\n\t\tinputs,labels = data\n\t\t#2.forward\n\t\ty_pred = model(inputs)\n\t\tloss = criterion(y_pred,labels)\n\t\tprint(epoch,i,loss.item())\n\t\t#3.backward\n\t\toptimizer.zero_grad()\n\t\tloss.backward()\n\t\toptimizer.step()\n```","x":1032,"y":1818,"width":623,"height":323},
 		{"id":"6aeca49853068ec7","type":"file","file":"基于pytorch的深度学习/8.Dataset & Dataloader.md","x":-1660,"y":-961,"width":930,"height":1342},
-		{"id":"468e143f065c6401","x":-1660,"y":639,"width":930,"height":1841,"type":"file","file":"基于pytorch的深度学习/8.Dataset & Dataloader on GPU.md"}
+		{"id":"468e143f065c6401","type":"file","file":"基于pytorch的深度学习/8.Dataset & Dataloader on GPU.md","x":-1660,"y":639,"width":930,"height":1841},
+		{"id":"1a1e8bd3853c8ec0","x":-434,"y":-440,"width":250,"height":60,"type":"text","text":"[[9.Softmax Classfier.canvas]]"}
 	],
 	"edges":[
 		{"id":"21a93501c9928389","fromNode":"7a72d0a0785ed1d6","fromSide":"right","toNode":"4b17ece37f59d362","toSide":"left"},
@@ -51,6 +52,7 @@
 		{"id":"c2bf69a6e5029041","fromNode":"cb9229c94d475c47","fromSide":"right","toNode":"3f532c6214d7b420","toSide":"left"},
 		{"id":"afb27d44de83a5e7","fromNode":"3f532c6214d7b420","fromSide":"right","toNode":"edb9cefaae76a114","toSide":"left"},
 		{"id":"c24254e1a1a535aa","fromNode":"7a72d0a0785ed1d6","fromSide":"left","toNode":"6aeca49853068ec7","toSide":"right"},
-		{"id":"ce7cab46f28686f5","fromNode":"6aeca49853068ec7","fromSide":"bottom","toNode":"468e143f065c6401","toSide":"top"}
+		{"id":"ce7cab46f28686f5","fromNode":"6aeca49853068ec7","fromSide":"bottom","toNode":"468e143f065c6401","toSide":"top"},
+		{"id":"507c7619cdad93ef","fromNode":"7a72d0a0785ed1d6","fromSide":"top","toNode":"1a1e8bd3853c8ec0","toSide":"bottom"}
 	]
 }
