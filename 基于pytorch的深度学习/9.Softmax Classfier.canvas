@@ -20,8 +20,9 @@
 		{"id":"8f44f9a46c0752b4","type":"text","text":"```\nimport torch \ncriterion = torch.nn.CrossEntropyLoss()\nY = torch.LongTensor([2,0,1])\n\nY_pred1 = torch.Tensor([[0.1,0.2,0.9],\n\t\t\t\t\t   [1.1,0.1,0.2],\n\t\t\t\t\t   [0.2,2.1,0.1]])\n\nY_pred2 = torch.Tensor([[0.8,0.2,0.3],\n\t\t\t\t\t\t[0.2,0.3,0.5],\n\t\t\t\t\t\t[0.2,0.2,0.5]])\n\t\t\t\t\t\t\nl1 = criterion(Y_pred1,Y)\nl2 = criterion(Y_pred2,Y)\n\nprint(\"Batch Loss1 = \",l1.data,\"\\nBatch Loss2 = \",l2.data)\n```","x":633,"y":806,"width":567,"height":373},
 		{"id":"9f4901d69e19c464","type":"text","text":"There are 10 lables , how to design the neural network","x":-357,"y":1280,"width":292,"height":81},
 		{"id":"827bd206d7bb90cf","type":"file","file":"基于pytorch的深度学习/pythorch photos/whc.png","x":78,"y":1280,"width":400,"height":192},
-		{"id":"5d6ad3c2befba3f2","x":917,"y":1280,"width":842,"height":2244,"type":"file","file":"基于pytorch的深度学习/9.Softmax Classfier.md"},
-		{"id":"44b6f451eb2df831","x":2000,"y":806,"width":1080,"height":3200,"type":"file","file":"基于pytorch的深度学习/9.Softmax Classfier.md"}
+		{"id":"5d6ad3c2befba3f2","type":"file","file":"基于pytorch的深度学习/9.Softmax Classfier.md","x":917,"y":1280,"width":842,"height":2244},
+		{"id":"44b6f451eb2df831","type":"file","file":"基于pytorch的深度学习/9.Softmax Classfier.md","x":2000,"y":806,"width":1080,"height":3200},
+		{"id":"8b1492a83f884423","x":-337,"y":-456,"width":250,"height":60,"type":"text","text":"[[10.Basic CNN.canvas]]"}
 	],
 	"edges":[
 		{"id":"a94d04cc7f37f72e","fromNode":"fb4c4766eb8da287","fromSide":"right","toNode":"4987c1b7c62e20e1","toSide":"left"},
@@ -44,6 +45,7 @@
 		{"id":"753a61bf98e0f32b","fromNode":"a16833c5d5605bd5","fromSide":"bottom","toNode":"9f4901d69e19c464","toSide":"top"},
 		{"id":"70b61c148ccf4525","fromNode":"9f4901d69e19c464","fromSide":"right","toNode":"827bd206d7bb90cf","toSide":"left"},
 		{"id":"38eff950b9644bd5","fromNode":"827bd206d7bb90cf","fromSide":"right","toNode":"5d6ad3c2befba3f2","toSide":"left"},
-		{"id":"c6699268e5769cdb","fromNode":"5d6ad3c2befba3f2","fromSide":"right","toNode":"44b6f451eb2df831","toSide":"left"}
+		{"id":"c6699268e5769cdb","fromNode":"5d6ad3c2befba3f2","fromSide":"right","toNode":"44b6f451eb2df831","toSide":"left"},
+		{"id":"444bf868197200cc","fromNode":"fb4c4766eb8da287","fromSide":"top","toNode":"8b1492a83f884423","toSide":"bottom"}
 	]
 }

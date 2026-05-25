@@ -6,7 +6,6 @@
 		{"id":"6c33d7e80fd91ddd","type":"text","text":"2.分治","x":-80,"y":-120,"width":250,"height":60},
 		{"id":"09f2422efa71446c","type":"text","text":"进行稀疏的搜索","x":280,"y":-120,"width":250,"height":60},
 		{"id":"8f6fa9d932257d2f","type":"text","text":"cost founction并非光滑的函数，无法通过分治找到最优","x":640,"y":-120,"width":256,"height":60},
-		{"id":"9f5f14210e8c6b23","type":"text","text":"Optimization Problem","x":-80,"y":20,"width":250,"height":60},
 		{"id":"3400c66fb7def454","type":"text","text":"$$\n\\omega ^ * = arg min cost (\\omega)\n$$","x":280,"y":20,"width":250,"height":60},
 		{"id":"89ed909f0d162658","type":"text","text":"数量级飙升","x":643,"y":-278,"width":250,"height":60},
 		{"id":"d86d869886811515","type":"text","text":"Gradient Descent Algorithm","x":-87,"y":200,"width":265,"height":60},
@@ -32,7 +31,8 @@
 		{"id":"02f74e401c1fabef","type":"text","text":"\n|     | 梯度下降 | 随机梯度下降 |\n| --- | ---- | ------ |\n| 性能  | 低    | 高      |\n| 时间  | 低    | 高      |\n","x":537,"y":1471,"width":313,"height":149,"color":"1"},
 		{"id":"6e8abca28f8d34fa","type":"text","text":"取折中方案:mini-batch","x":-69,"y":1720,"width":250,"height":60},
 		{"id":"17daa016ab744cde","type":"text","text":"批量的随机梯度下降，每次取一组进行梯度下降","x":280,"y":1720,"width":250,"height":60},
-		{"id":"413fe23ea143b6a3","type":"text","text":"为[[4.BACK PROPAGATION.canvas]] 服务","x":-437,"y":-440,"width":250,"height":60}
+		{"id":"413fe23ea143b6a3","type":"text","text":"为[[4.BACK PROPAGATION.canvas]] 服务","x":-437,"y":-440,"width":250,"height":60},
+		{"id":"9f5f14210e8c6b23","type":"text","text":"Optimization Problem","x":-80,"y":20,"width":250,"height":60}
 	],
 	"edges":[
 		{"id":"0b2f9d0341f50c91","fromNode":"cefc033499ac4fc4","fromSide":"right","toNode":"74441a19ed8a26b7","toSide":"left"},

@@ -74,5 +74,53 @@ codex --version
 
 # 三.[[CLAUDE CODE+DEEPSEEK]]
 
+## 1 从0安装claudecode
+
+	1.需要node.js 18+
+	2.确保你已经安装git for windows
+	3.建议power shell 17+
+在命令行界面下执行
+```
+npm install -g @anthropic-ai/claude-code
+```
+安装完成后执行
+```
+claude --version
+```
+确认Claude版本
+
+## 2 配置
+
+依旧建议使用ccswitch进行统一的api管理
+
+供应商名称：DeepSeek
+官网链接：https://platform.deepseek.com
+请求地址：https://api.deepseek.com/anthropic
+API 格式选择：Anthropic Messages(原生)
+认证字段选择：ANTHROPIC_AUTH_TOKEN(默认)
+
+配置模型映射
+![[模型映射.png]]
+
+配置json，开启写入通用配置：
+```
+{
+  "env": {
+    "ANTHROPIC_AUTH_TOKEN": "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    "ANTHROPIC_BASE_URL": "https://api.deepseek.com/anthropic",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "deepseek-v4-pro[1m]",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "deepseek-v4-flash",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "deepseek-v4-pro[1m]",
+    "ANTHROPIC_MODEL": "deepseek-v4-pro[1m]"
+  },
+  "theme": "dark"
+}
+```
+
+deepseek原生支持claudecode的websearch功能，可以直接要求搜索网页
+
+
+
+
 
 
