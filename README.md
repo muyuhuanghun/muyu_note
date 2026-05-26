@@ -1,82 +1,93 @@
-# muyu_note 📚
+# muyu_note
 
-个人学习笔记库，用于记录和整理学习过程中的知识内容。
+个人学习笔记仓库，使用 Obsidian 管理，内容以 AI、编程、深度学习和基础课程笔记为主。
 
-## 📁 目录结构
+## 仓库概览
 
-### 🤖 AI & 编程相关
+这个仓库主要用于：
 
-- **AI_CODING/** - AI编程工具和技术笔记（6个文件）
-  - 包含Copilot、GitHub相关IDE集成使用教程
-  - AI agent编程相关资源
+- 记录课程学习过程中的知识点
+- 整理 AI 工具、开发工具和本地模型相关资料
+- 保存 Obsidian Canvas 图示、截图和辅助图片
+- 持续沉淀可复用的实践笔记
 
-- **ANTHROPIC/** - Anthropic相关文档（1个文件）
+## 目录结构
 
-- **Github/** - GitHub使用指南（11个文件）
-  - GitHub基础信息、学生认证、Token使用等
-  - GitHub Actions和Workflow相关内容
+### AI 与工具
 
-- **OPENAI_GPT_CODEX/** - OpenAI GPT Codex文档（1个文件）
+- `AI_CODING/`
+  - AI agent、IDE 集成、AI coding 使用经验
+- `ANTHROPIC/`
+  - Claude 相关笔记
+- `OPENAI_GPT_CODEX/`
+  - Codex 相关记录
+- `Github/`
+  - GitHub 基础、学生认证、Token、Copilot 等内容
+- `LLAMA.CPP/`
+  - 本地运行大模型的准备与使用笔记
+- `GOOGLE INFO/`
+  - Google 相关信息整理
+- `TENCENT INFO/`
+  - 腾讯相关记录
+- `UESTC INFO/`
+  - 学校相关信息
 
-- **LLAMA.CPP/** - Llama.cpp本地大模型运行指南（5个文件）
-  - 包含前期准备、使用教程和相关图片资源
+### 课程与技术学习
 
-- **TENCENT INFO/** - 腾讯相关信息（1个文件）
+- `基于pytorch的深度学习/`
+  - 线性模型
+  - 梯度下降
+  - 反向传播
+  - Logistic Regression
+  - Dataset 与 Dataloader
+  - Softmax Classifier
+  - CNN 与 Advanced CNN
+- `程序与算法设计/`
+  - 算法与课程相关内容
+- `微积分/`
+  - 微积分基础笔记
+- `线性代数/`
+  - 线性代数基础笔记
 
-- **GOOGLE INFO/** - Google相关信息（1个文件）
+### 其他主题
 
-- **UESTC INFO/** - 电子科技大学相关信息（1个文件）
+- `服务器与VPS/`
+  - 服务器和 VPS 相关资料
+- `科学上网/`
+  - 网络访问与相关原理记录
+- `Excalidraw/`
+  - 绘图资源目录
 
-### 📖 课程学习笔记
+## 文件类型
 
-- **基于pytorch的深度学习/** - PyTorch深度学习系列（49个文件）
-  - **核心内容：**
-    - 线性模型与回归
-    - 梯度下降算法
-    - 反向传播(Backpropagation)
-    - 逻辑回归
-    - Softmax分类器
-    - 多维输入处理
-    - GPU数据加载(Dataset & Dataloader)
-  - 包含大量Canvas可视化笔记和详细说明文档
+仓库当前主要包含以下内容：
 
-- **微积分/** - 微积分基础笔记（1个文件）
+- `*.md`：Markdown 笔记
+- `*.canvas`：Obsidian Canvas 可视化笔记
+- `*.png`：课程图示、截图和辅助说明图片
+- `.obsidian/`：Obsidian 配置与插件数据
 
-- **线性代数/** - 线性代数基础笔记（1个文件）
+## 推荐使用方式
 
-- **程序与算法设计/** - 编程算法设计笔记（1个文件）
+建议直接使用 Obsidian 打开此仓库，以获得完整体验：
 
-### 🛠️ 其他资源
+- 查看 Canvas 结构图
+- 使用双向链接和搜索
+- 保留原有笔记组织方式
+- 访问 `.obsidian/` 中的本地配置
 
-- **服务器与VPS/** - 服务器部署相关文档
+## 当前内容重点
 
-- **科学上网/** - 网络工具相关信息（1个文件）
+现阶段内容主要集中在以下几个方向：
 
-- **Excalidraw/** - 绘图和可视化资源目录
+1. AI coding 工具与工作流
+2. PyTorch 深度学习课程学习
+3. GitHub 与开发环境使用
+4. 本地大模型运行与相关工具
+5. 数学与课程基础笔记
 
-- **cross entropy one hot.png** - 交叉熵和One-hot编码图解
+## 说明
 
-## 📋 文件类型
-
-- `.md` - Markdown笔记文档
-- `.canvas` - Obsidian Canvas可视化笔记
-- `.json` - 配置文件（Obsidian相关）
-- `.png` - 图片资源和图解
-
-## 🎯 主要内容分类
-
-1. **AI与LLM** - 大语言模型、代码编程助手、本地模型运行
-2. **深度学习** - PyTorch框架、神经网络、各种学习算法
-3. **基础数学** - 线性代数、微积分
-4. **开发工具** - GitHub、IDE集成、编程工具
-5. **计算基础** - 算法设计、网络知识
-
-## 💡 使用方式
-
-本库基于Obsidian进行管理，建议使用Obsidian打开以获得最佳体验（可视化图表、链接导航等）。
-
-## 📝 更新说明
-
-- 持续补充和更新学习笔记
-- 记录学习过程中的重要知识点
-- 包含实践经验和技术总结
+- 仓库内容会持续更新
+- 部分目录以资料整理为主，部分目录以课程笔记为主
+- 图片和 Canvas 文件较多，适合配合 Obsidian 一起查看

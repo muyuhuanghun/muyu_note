@@ -34,8 +34,8 @@
 		{"id":"0ac90532493fc26d","type":"text","text":"on gpu","x":-419,"y":3700,"width":250,"height":60},
 		{"id":"7eb0f4dcc08d94e7","type":"file","file":"基于pytorch的深度学习/pythorch photos/on gpu.png","x":11,"y":3597,"width":400,"height":266},
 		{"id":"82750c003a6dc4c6","type":"file","file":"基于pytorch的深度学习/pythorch photos/to gpu-2.png","x":580,"y":3597,"width":593,"height":263},
-		{"id":"23ab64e071a4497e","type":"file","file":"基于pytorch的深度学习/10.Basic CNN.md","x":-1457,"y":1049,"width":909,"height":2720},
-		{"id":"b44caa10a80f14b6","x":-798,"y":-180,"width":250,"height":60,"type":"text","text":"[[11.Advanced CNN.canvas]]"}
+		{"id":"b44caa10a80f14b6","type":"text","text":"[[11.Advanced CNN.canvas]]","x":-798,"y":-180,"width":250,"height":60},
+		{"id":"23ab64e071a4497e","type":"file","file":"基于pytorch的深度学习/10.Basic CNN.md","x":-1560,"y":1049,"width":1057,"height":2720}
 	],
 	"edges":[
 		{"id":"f0e265308b982b3d","fromNode":"35931b8ded4ae778","fromSide":"right","toNode":"d394ce1108b7bb3a","toSide":"left"},

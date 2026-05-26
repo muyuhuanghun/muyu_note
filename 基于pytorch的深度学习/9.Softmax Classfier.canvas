@@ -22,7 +22,7 @@
 		{"id":"827bd206d7bb90cf","type":"file","file":"基于pytorch的深度学习/pythorch photos/whc.png","x":78,"y":1280,"width":400,"height":192},
 		{"id":"5d6ad3c2befba3f2","type":"file","file":"基于pytorch的深度学习/9.Softmax Classfier.md","x":917,"y":1280,"width":842,"height":2244},
 		{"id":"44b6f451eb2df831","type":"file","file":"基于pytorch的深度学习/9.Softmax Classfier.md","x":2000,"y":806,"width":1080,"height":3200},
-		{"id":"8b1492a83f884423","x":-337,"y":-456,"width":250,"height":60,"type":"text","text":"[[10.Basic CNN.canvas]]"}
+		{"id":"8b1492a83f884423","type":"text","text":"[[10.Basic CNN.canvas]]","x":-337,"y":-456,"width":250,"height":60}
 	],
 	"edges":[
 		{"id":"a94d04cc7f37f72e","fromNode":"fb4c4766eb8da287","fromSide":"right","toNode":"4987c1b7c62e20e1","toSide":"left"},

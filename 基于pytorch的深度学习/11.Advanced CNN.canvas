@@ -44,7 +44,9 @@
 		{"id":"bb0e3a4c902e4405","type":"text","text":"4.特定领域/扩充","x":-924,"y":595,"width":250,"height":60},
 		{"id":"1a6d02efcdd12da8","type":"text","text":"理论上盲点","x":-600,"y":595,"width":250,"height":60},
 		{"id":"09fb6df29eda6a04","type":"text","text":"代码盲点","x":-600,"y":697,"width":250,"height":60},
-		{"id":"e541f40ad0c9d404","type":"file","file":"基于pytorch的深度学习/11.Advanced CNN.md","x":-2240,"y":-151,"width":1120,"height":3210}
+		{"id":"e541f40ad0c9d404","type":"file","file":"基于pytorch的深度学习/11.Advanced CNN.md","x":-2200,"y":-151,"width":1120,"height":3210},
+		{"id":"51303defdd0eb78a","type":"file","file":"基于pytorch的深度学习/11.引入RESNET的CNN网络.md","x":-3320,"y":-151,"width":1080,"height":3951},
+		{"id":"abf2ee6a0008e28d","x":-273,"y":-278,"width":250,"height":60,"type":"text","text":"[[12.Basic RNN.canvas]]"}
 	],
 	"edges":[
 		{"id":"8e9b77ae72ab91cb","fromNode":"3b29cadba0575226","fromSide":"right","toNode":"17dd31576546d821","toSide":"left"},
