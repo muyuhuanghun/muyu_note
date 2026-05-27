@@ -1,3 +1,11 @@
 # Obsidian workspace/graph transient state
 .obsidian/workspace.json
 .obsidian/graph.json
+
+# 账号和密码相关文件 (敏感信息)
+AI_CODING/pwd.md
+Github/Github Base Info.md
+Github/GitHub_token.canvas
+TENCENT INFO/
+GOOGLE INFO/
+UESTC INFO/
