@@ -4,7 +4,7 @@
 		{"id":"664a4a6dd36d795d","type":"text","text":"Dataloader","x":-378,"y":-160,"width":138,"height":60},
 		{"id":"4b17ece37f59d362","type":"text","text":"数据集，通过索引","x":-140,"y":-320,"width":250,"height":60},
 		{"id":"15857e0d89276061","type":"text","text":"Mini-Batch","x":-140,"y":-160,"width":250,"height":60},
-		{"id":"db7b0e671ae4a250","type":"file","file":"基于pytorch的深度学习/7.Multiple Dimension Input.md","x":400,"y":-881,"width":871,"height":1182},
+		{"id":"db7b0e671ae4a250","type":"file","file":"基于pytorch的深度学习/07.Multiple Dimension Input.md","x":400,"y":-881,"width":871,"height":1182},
 		{"id":"bc1ae7a55c9a9369","type":"text","text":"batch 全部数据 /随机梯度下降","x":-140,"y":-840,"width":250,"height":60},
 		{"id":"7b9e21b2d88b74d9","type":"text","text":"batch 最大化利用向量化的优势，提升速度","x":-140,"y":-529,"width":250,"height":60},
 		{"id":"ad6926706a05cdf5","type":"text","text":"只用一个样本，有助于我们克服鞍点的问题","x":-140,"y":-640,"width":250,"height":60},
@@ -27,9 +27,9 @@
 		{"id":"cb9229c94d475c47","type":"text","text":"Diabetes Dataset","x":-434,"y":1760,"width":250,"height":60},
 		{"id":"3f532c6214d7b420","type":"text","text":"```\nclass DiabetesDataset(Dataset):\n\tdef__init__(self,filepath):\n\t\txy = np.loadtxt(filepath,delimiter=',',dtype = np.float32)\n\t\tself.len = xy.shape[0]\n\t\tself.x_data = torch.from_numpy(xy[:,:,-1])\n\t\tself.y_data = torch.from_numpy(xy[:,[-1]])\n\t\t\n\tdef__getitem__(self,index):\n\t\treturn self.x_data[index],self.y_data[index]\n\t\t\n\tdef__len__(self):\n\t\treturn self.len\n\t\t\ndataset = DiabetesDataset('diabetas.csv.gz')\ntrain_loader = DataLoader(dataset = dataset,batch_size=32,shuffle=Ture,num_wokers=2)\n```","x":60,"y":1760,"width":744,"height":440},
 		{"id":"edb9cefaae76a114","type":"text","text":"```\nfor epoch in range(100):\n\tfor i,data in enumcrate(train_loader,0):\n\t\t#1.prepare data\n\t\tinputs,labels = data\n\t\t#2.forward\n\t\ty_pred = model(inputs)\n\t\tloss = criterion(y_pred,labels)\n\t\tprint(epoch,i,loss.item())\n\t\t#3.backward\n\t\toptimizer.zero_grad()\n\t\tloss.backward()\n\t\toptimizer.step()\n```","x":1032,"y":1818,"width":623,"height":323},
-		{"id":"6aeca49853068ec7","type":"file","file":"基于pytorch的深度学习/8.Dataset & Dataloader.md","x":-1660,"y":-961,"width":930,"height":1342},
-		{"id":"468e143f065c6401","type":"file","file":"基于pytorch的深度学习/8.Dataset & Dataloader on GPU.md","x":-1660,"y":639,"width":930,"height":1841},
-		{"id":"1a1e8bd3853c8ec0","type":"text","text":"[[9.Softmax Classfier.canvas]]","x":-434,"y":-440,"width":250,"height":60}
+		{"id":"6aeca49853068ec7","type":"file","file":"基于pytorch的深度学习/08.Dataset & Dataloader.md","x":-1660,"y":-961,"width":930,"height":1342},
+		{"id":"468e143f065c6401","type":"file","file":"基于pytorch的深度学习/08.Dataset & Dataloader on GPU.md","x":-1660,"y":639,"width":930,"height":1841},
+		{"id":"1a1e8bd3853c8ec0","type":"text","text":"[[09.Softmax Classfier.canvas]]","x":-434,"y":-440,"width":250,"height":60}
 	],
 	"edges":[
 		{"id":"21a93501c9928389","fromNode":"7a72d0a0785ed1d6","fromSide":"right","toNode":"4b17ece37f59d362","toSide":"left"},

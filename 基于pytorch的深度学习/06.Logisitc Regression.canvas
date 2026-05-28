@@ -66,8 +66,8 @@
 		{"id":"65e53bf928745a76","type":"text","text":"```\nimport torch.nn.functional as F\n\nclass LogisticRegressionModel(torch.nn.Module):\n\tdef__init__(self):\n\t\tsuper(LosgisticRegressionModel,self).__init__()\n\t\tself.linear = torch.nn.Linear(1,1)\n\t\t\n\tdef forward(self,x):\n\t\ty_pred = F.sigmoid(self.linear(x))\n\t\treturn y_pred\n```","x":758,"y":1580,"width":556,"height":291},
 		{"id":"5bbd0e4755d28b52","type":"text","text":"```\ncriterion - torch.nn.BCELoss(size_average-False)\n```","x":213,"y":2300,"width":490,"height":50},
 		{"id":"d7e7e396c96b4edb","type":"text","text":"Implementation of Logstic Regression","x":-372,"y":2460,"width":250,"height":60},
-		{"id":"0aed4ce03e285311","type":"file","file":"基于pytorch的深度学习/6.Logistic Regression.md","x":103,"y":2460,"width":1030,"height":1265},
-		{"id":"adba6d0d6f5ce0b5","type":"text","text":"[[7.Multiple Dimension Input.canvas]]","x":-372,"y":-520,"width":250,"height":50}
+		{"id":"0aed4ce03e285311","type":"file","file":"基于pytorch的深度学习/06.Logistic Regression.md","x":103,"y":2460,"width":1030,"height":1265},
+		{"id":"adba6d0d6f5ce0b5","type":"text","text":"[[07.Multiple Dimension Input.canvas]]","x":-372,"y":-520,"width":250,"height":50}
 	],
 	"edges":[
 		{"id":"2b619c2ca1b6a3d7","fromNode":"8da58b2151bc227a","fromSide":"right","toNode":"7b8cc895d4aac5d0","toSide":"left"},

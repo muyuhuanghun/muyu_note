@@ -20,7 +20,7 @@
 		{"id":"7a0865be7458fb4c","type":"text","text":"mean square error (mse)","x":599,"y":740,"width":250,"height":60},
 		{"id":"672c9ad305c4f969","type":"text","text":"$$\ncost = 1/N \\sum_{n=1}^{N} (\\hat{y_n} - y_n)^2\n$$","x":940,"y":740,"width":250,"height":60},
 		{"id":"f4ec7b23a478c743","type":"text","text":"cost founction","x":270,"y":740,"width":250,"height":60},
-		{"id":"dd1e4f71522710a3","x":1400,"y":240,"width":870,"height":840,"type":"file","file":"基于pytorch的深度学习/2.线性模型.md"}
+		{"id":"dd1e4f71522710a3","x":1400,"y":240,"width":870,"height":840,"type":"file","file":"基于pytorch的深度学习/02.线性模型.md"}
 	],
 	"edges":[
 		{"id":"05d39c9a80a810b0","fromNode":"0f8e8b597bb2bddd","fromSide":"right","toNode":"b0402ad1dfdb5532","toSide":"left"},

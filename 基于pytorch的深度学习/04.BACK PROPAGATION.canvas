@@ -45,8 +45,8 @@
 		{"id":"52994260dc19109a","type":"text","text":"In Pytorch","x":444,"y":1743,"width":287,"height":112},
 		{"id":"132a27504b28f5f6","type":"text","text":"tensor张量","x":831,"y":1769,"width":250,"height":60},
 		{"id":"fbf06e07d50ec744","type":"text","text":"用于保存计算图中所需的所有数据","x":1220,"y":1769,"width":250,"height":60},
-		{"id":"0c896e069955dcad","type":"file","file":"基于pytorch的深度学习/4.BACK PROPAGATION.md","x":425,"y":2000,"width":1062,"height":806},
-		{"id":"7fea2ae861dd4122","type":"text","text":"[[5.Linear Regression With Pytorch.canvas]]","x":-404,"y":-480,"width":250,"height":60}
+		{"id":"0c896e069955dcad","type":"file","file":"基于pytorch的深度学习/04.BACK PROPAGATION.md","x":425,"y":2000,"width":1062,"height":806},
+		{"id":"7fea2ae861dd4122","type":"text","text":"[[05.Linear Regression With Pytorch.canvas]]","x":-404,"y":-480,"width":250,"height":60}
 	],
 	"edges":[
 		{"id":"8ba2c07e54c06822","fromNode":"681cd84bf1e2c8b6","fromSide":"bottom","toNode":"f8585484f6ab689b","toSide":"top"},

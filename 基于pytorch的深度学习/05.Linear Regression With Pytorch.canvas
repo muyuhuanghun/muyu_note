@@ -49,8 +49,8 @@
 		{"id":"611d488ef0c71af2","type":"text","text":"4.training cycle","x":-200,"y":2400,"width":250,"height":60},
 		{"id":"68a185aacc36372c","type":"text","text":"```\nfor epoch in range(100):\n\ty_pred = model(x_data)\n\tloss = criterion(y_pred,y_data)\n\tprint(epoch , loss)\n\t\n\toptimizer.zero_grad()\n\tloss.backward()\n\toptimizer.step()\n\t\nprint('w = ',model.linear.weight.item())\nprint('b = ',model.liner.bias.item())\n\nx_test = torch.Tensor([4.0])\ny_test = model(x_test)\nprint('y_pred = ',y_test.data)\n\n```","x":140,"y":2400,"width":609,"height":420},
 		{"id":"302a8d4ae9235604","type":"file","file":"基于pytorch的深度学习/pythorch photos/optimizer.png","x":660,"y":2151,"width":399,"height":128},
-		{"id":"3acd254cf45b9378","type":"file","file":"基于pytorch的深度学习/5.Linear Regression With Pytorch.md","x":-1120,"y":1050,"width":616,"height":909},
-		{"id":"fb42917d9e22159d","type":"text","text":"[[6.Logisitc Regression.canvas]]","x":-1580,"y":1475,"width":250,"height":60},
+		{"id":"3acd254cf45b9378","type":"file","file":"基于pytorch的深度学习/05.Linear Regression With Pytorch.md","x":-1120,"y":1050,"width":616,"height":909},
+		{"id":"fb42917d9e22159d","type":"text","text":"[[06.Logisitc Regression.canvas]]","x":-1580,"y":1475,"width":250,"height":60},
 		{"id":"2b322c9117ce17bc","type":"text","text":"$$\n\\begin{bmatrix}\nloss_1 \\\\\nloss_2 \\\\\nloss_3 \\\\\n\\end{bmatrix}\n= \n(\n\\begin{bmatrix}\n\\hat y_1 \\\\\n\\hat y_2 \\\\\n\\hat y_3 \\\\\n\\end{bmatrix}\n-\n\\begin{bmatrix}\ny_1 \\\\\ny_2 \\\\\ny_3 \\\\\n\\end{bmatrix}\n)^2\n\n$$","x":390,"y":520,"width":290,"height":134,"color":"6"}
 	],
 	"edges":[
