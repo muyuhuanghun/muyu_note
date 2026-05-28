@@ -91,3 +91,34 @@
 - 仓库内容会持续更新
 - 部分目录以资料整理为主，部分目录以课程笔记为主
 - 图片和 Canvas 文件较多，适合配合 Obsidian 一起查看
+
+## 协作规范
+
+本仓库 `main` 分支已开启分支保护，禁止直接推送。所有改动必须通过 Pull Request 合并。
+
+### 提交流程
+
+1. **从 main 创建特性分支**
+   ```bash
+   git checkout main
+   git pull origin main
+   git checkout -b feature/你的分支名
+   ```
+
+2. **在特性分支上提交并推送**
+   ```bash
+   git add .
+   git commit -m "简要描述改动内容"
+   git push origin feature/你的分支名
+   ```
+
+3. **在 GitHub 上创建 Pull Request**
+   - 目标分支选择 `main`
+   - 标题简明扼要，描述清楚改动内容
+   - 等待仓库管理员 Review 并合并
+
+### 注意事项
+
+- 不要直接向 `main` 分支推送代码
+- 一个 PR 尽量只包含一个独立的改动主题
+- commit message 使用中文，描述清楚做了什么
