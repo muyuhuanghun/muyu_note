@@ -35,13 +35,14 @@
 ### 课程与技术学习
 
 - `基于pytorch的深度学习/`
-  - 线性模型
-  - 梯度下降
-  - 反向传播
-  - Logistic Regression
-  - Dataset 与 Dataloader
-  - Softmax Classifier
-  - CNN 与 Advanced CNN
+  - `Deep Learning Basic/` — 深度学习基础（线性模型、梯度下降、反向传播、CNN、RNN 等）
+  - `Transformer/` — Transformer 架构相关笔记
+  - `pythorch photos/` — 课程图示与截图
+- `传统机器学习(结合西瓜书)/`
+  - `all_md/` — 支持向量机、决策树、集成学习等理论笔记
+  - `all_ipynb/` — 配套 Jupyter Notebook 代码
+- `PBLF/`
+  - 算法练习题与练习记录
 - `程序与算法设计/`
   - 算法与课程相关内容
 - `微积分/`
@@ -81,10 +82,12 @@
 现阶段内容主要集中在以下几个方向：
 
 1. AI coding 工具与工作流
-2. PyTorch 深度学习课程学习
-3. GitHub 与开发环境使用
-4. 本地大模型运行与相关工具
-5. 数学与课程基础笔记
+2. PyTorch 深度学习课程学习（含 Transformer）
+3. 传统机器学习（西瓜书）理论与实践
+4. GitHub 与开发环境使用
+5. 本地大模型运行与相关工具
+6. 算法练习（PBLF）
+7. 数学与课程基础笔记
 
 ## 说明
 
