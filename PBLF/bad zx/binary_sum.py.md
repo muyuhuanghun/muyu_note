@@ -18,3 +18,11 @@ def main():
 if __name__ == "__main__":  
     main()
 ```
+[[palindrome_check.py]]
+[[highest_freq_elem.py]]
+[[json_csv_interconv.py]]
+[[palindrome_check.py]]
+[[prime_num.py]]
+[[str_format.py]]
+[[top_n_stu.py]]
+[[word_freq.py]]
