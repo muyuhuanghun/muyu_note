@@ -36,6 +36,7 @@
 
 - `基于pytorch的深度学习/`
   - `Deep Learning Basic/` — 深度学习基础，共 14 章（概述、线性模型、梯度下降、反向传播、线性回归、逻辑回归、多维输入、Dataset & Dataloader、Softmax 分类器、基础/高级 CNN、RNN、RNN 分类器、Adam 优化器与权重衰减）
+  - `Deep Learning advance/` — 深度学习进阶（UNet 图像分割、YOLO 目标检测、FaceNet 度量学习）
   - `Transformer/` — Transformer 架构相关笔记（Canvas 知识图谱，基于吴恩达课程框架）
   - `pythorch photos/` — 课程图示与截图
 - `传统机器学习(结合西瓜书)/`
@@ -82,12 +83,13 @@
 现阶段内容主要集中在以下几个方向：
 
 1. AI coding 工具与工作流
-2. PyTorch 深度学习课程学习（14 章，含 CNN/RNN/Adam 优化器）
+2. PyTorch 深度学习课程学习（14 章基础 + 进阶：UNet/YOLO/FaceNet）
 3. 传统机器学习（西瓜书）理论与实践
 4. GitHub 与开发环境使用
 5. 本地大模型运行与相关工具
 6. 算法练习（PBLF）
 7. 数学与课程基础笔记
+8. Transformer 架构与 Attention 机制
 
 ## 说明
 
