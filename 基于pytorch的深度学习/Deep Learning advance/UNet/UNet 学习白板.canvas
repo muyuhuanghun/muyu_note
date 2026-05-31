@@ -14,7 +14,14 @@
 		{"id":"a1b2c3d4e5f60007","type":"text","text":"## 核心组件 5: Dice Loss\n\n```python\nclass SafeDiceLoss(nn.Module):\n    # Dice = 2|X∩Y| / (|X|+|Y|)\n    # Loss = 1 - Dice\n    smooth = 1.0  # 数值稳定性\n```\n\n**为什么不用 BCE?**\n- 血管像素只占 ~10%\n- 模型偷懒全预测背景也能拿 90% 准确率\n- Dice Loss 直接监督\"重叠度\"\n- 不受类别不均衡影响\n\n**组合损失**:\n```\nloss = 0.5*BCE + 0.5*Dice\n```","x":2080,"y":1278,"width":510,"height":470,"color":"6"},
 		{"id":"a1b2c3d4e5f60013","type":"text","text":"## 数据集: DRIVE\n\n**Digital Retinal Images for Vessel Extraction**\n\n- 训练集: 20 张眼底彩照\n- 测试集: 20 张眼底彩照\n- 标签: 手动标注的血管二值图\n- 掩码: FOV 视野范围\n\n**文件格式**:\n- 图像: .tif (RGB)\n- 标签: .gif (灰度)\n- 掩码: .gif (灰度)\n\n**血管像素占比**: ~10%\n**FOV 范围占比**: ~80%","x":2135,"y":2040,"width":400,"height":440,"color":"1"},
 		{"id":"7014cafbe76c4602","type":"text","text":"","x":1077,"y":828,"width":250,"height":60},
-		{"id":"c698c59f7ffe7c9f","type":"file","file":"基于pytorch的深度学习/Deep Learning advance/UNet/unet.png","x":-336,"y":2760,"width":2471,"height":1240}
+		{"id":"c698c59f7ffe7c9f","type":"file","file":"基于pytorch的深度学习/Deep Learning advance/UNet/unet.png","x":-336,"y":2760,"width":2471,"height":1240},
+		{"id":"23c45065783363b6","type":"text","text":"原论文中的网络模型","x":-3660,"y":-460,"width":250,"height":60},
+		{"id":"4bbc4761aa73dbae","type":"text","text":"u-net 语义分割算法背景","x":-3660,"y":-970,"width":250,"height":60},
+		{"id":"c77c3b76e0e5c5dd","type":"text","text":"全卷积网络，用于提升医学影像中器官，病变区域的精度","x":-3320,"y":-980,"width":260,"height":80},
+		{"id":"db24c37d8c0ca7dd","type":"file","file":"基于pytorch的深度学习/Deep Learning advance/UNet/u-net.png","x":-2960,"y":-958,"width":1642,"height":1057},
+		{"id":"3ed04511c67c1cb2","type":"text","text":"输入572*572","x":-3410,"y":-280,"width":250,"height":60},
+		{"id":"1db380ad2ff510a1","type":"text","text":"输出388*388","x":-1080,"y":-230,"width":250,"height":60},
+		{"id":"f23312183c5b15ce","type":"text","text":"跳链接","x":-2264,"y":-1240,"width":250,"height":60}
 	],
 	"edges":[
 		{"id":"a1b2c3d4e5f61001","fromNode":"a1b2c3d4e5f60011","fromSide":"right","toNode":"a1b2c3d4e5f60002","toSide":"left","label":"先看结构图"},
@@ -29,6 +36,12 @@
 		{"id":"a1b2c3d4e5f61010","fromNode":"a1b2c3d4e5f60004","fromSide":"right","toNode":"a1b2c3d4e5f60012","toSide":"left","label":"超参数"},
 		{"id":"a1b2c3d4e5f61011","fromNode":"a1b2c3d4e5f60007","fromSide":"bottom","toNode":"a1b2c3d4e5f60013","toSide":"top","label":"数据集"},
 		{"id":"a1b2c3d4e5f61012","fromNode":"a1b2c3d4e5f60002","fromSide":"bottom","toNode":"a1b2c3d4e5f60014","toSide":"top","label":"论文原图说明"},
-		{"id":"14a1f34268a97c3a","fromNode":"a1b2c3d4e5f60014","fromSide":"bottom","toNode":"c698c59f7ffe7c9f","toSide":"top"}
+		{"id":"14a1f34268a97c3a","fromNode":"a1b2c3d4e5f60014","fromSide":"bottom","toNode":"c698c59f7ffe7c9f","toSide":"top"},
+		{"id":"50ed2c5c6c23a038","fromNode":"4bbc4761aa73dbae","fromSide":"right","toNode":"c77c3b76e0e5c5dd","toSide":"left"},
+		{"id":"8ed7ae05795337ca","fromNode":"4bbc4761aa73dbae","fromSide":"bottom","toNode":"23c45065783363b6","toSide":"top"},
+		{"id":"5b8c3eba1801229e","fromNode":"23c45065783363b6","fromSide":"right","toNode":"db24c37d8c0ca7dd","toSide":"left"},
+		{"id":"9ada82b7645bfbf3","fromNode":"3ed04511c67c1cb2","fromSide":"right","toNode":"db24c37d8c0ca7dd","toSide":"left"},
+		{"id":"a0c112e395013744","fromNode":"db24c37d8c0ca7dd","fromSide":"right","toNode":"1db380ad2ff510a1","toSide":"left"},
+		{"id":"84f3954f6faa1464","fromNode":"f23312183c5b15ce","fromSide":"bottom","toNode":"db24c37d8c0ca7dd","toSide":"top"}
 	]
 }
