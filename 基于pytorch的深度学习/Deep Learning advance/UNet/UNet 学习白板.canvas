@@ -19,9 +19,15 @@
 		{"id":"4bbc4761aa73dbae","type":"text","text":"u-net 语义分割算法背景","x":-3660,"y":-970,"width":250,"height":60},
 		{"id":"c77c3b76e0e5c5dd","type":"text","text":"全卷积网络，用于提升医学影像中器官，病变区域的精度","x":-3320,"y":-980,"width":260,"height":80},
 		{"id":"db24c37d8c0ca7dd","type":"file","file":"基于pytorch的深度学习/Deep Learning advance/UNet/u-net.png","x":-2960,"y":-958,"width":1642,"height":1057},
-		{"id":"3ed04511c67c1cb2","type":"text","text":"输入572*572","x":-3410,"y":-280,"width":250,"height":60},
 		{"id":"1db380ad2ff510a1","type":"text","text":"输出388*388","x":-1080,"y":-230,"width":250,"height":60},
-		{"id":"f23312183c5b15ce","type":"text","text":"跳链接","x":-2264,"y":-1240,"width":250,"height":60}
+		{"id":"f23312183c5b15ce","type":"text","text":"跳链接","x":-2264,"y":-1240,"width":250,"height":60},
+		{"id":"689e94012adc3f77","type":"text","text":"ConvBNRelu/CBR","x":-5218,"y":160,"width":250,"height":60},
+		{"id":"66e03fa17477c815","type":"text","text":"Bottleneck","x":-4416,"y":160,"width":250,"height":60},
+		{"id":"67452283248d57c9","type":"file","file":"基于pytorch的深度学习/Deep Learning advance/UNet/bottleneck.png","x":-4598,"y":320,"width":614,"height":560},
+		{"id":"2f193deb4515221e","type":"file","file":"基于pytorch的深度学习/Deep Learning advance/UNet/CBR.png","x":-5333,"y":320,"width":480,"height":433},
+		{"id":"54cfddb2a6674dcc","type":"file","file":"基于pytorch的深度学习/Deep Learning advance/UNet/2CR.png","x":-3778,"y":400,"width":237,"height":400},
+		{"id":"faf0dfd67e60a587","type":"file","file":"基于pytorch的深度学习/Deep Learning advance/UNet/layer.png","x":-4838,"y":1080,"width":1094,"height":600},
+		{"id":"3ed04511c67c1cb2","type":"text","text":"输入572*572","x":-3659,"y":-280,"width":250,"height":60}
 	],
 	"edges":[
 		{"id":"a1b2c3d4e5f61001","fromNode":"a1b2c3d4e5f60011","fromSide":"right","toNode":"a1b2c3d4e5f60002","toSide":"left","label":"先看结构图"},
@@ -42,6 +48,12 @@
 		{"id":"5b8c3eba1801229e","fromNode":"23c45065783363b6","fromSide":"right","toNode":"db24c37d8c0ca7dd","toSide":"left"},
 		{"id":"9ada82b7645bfbf3","fromNode":"3ed04511c67c1cb2","fromSide":"right","toNode":"db24c37d8c0ca7dd","toSide":"left"},
 		{"id":"a0c112e395013744","fromNode":"db24c37d8c0ca7dd","fromSide":"right","toNode":"1db380ad2ff510a1","toSide":"left"},
-		{"id":"84f3954f6faa1464","fromNode":"f23312183c5b15ce","fromSide":"bottom","toNode":"db24c37d8c0ca7dd","toSide":"top"}
+		{"id":"84f3954f6faa1464","fromNode":"f23312183c5b15ce","fromSide":"bottom","toNode":"db24c37d8c0ca7dd","toSide":"top"},
+		{"id":"d995e8d27a729527","fromNode":"689e94012adc3f77","fromSide":"bottom","toNode":"2f193deb4515221e","toSide":"top"},
+		{"id":"2c2eb97b5cb1c224","fromNode":"66e03fa17477c815","fromSide":"bottom","toNode":"67452283248d57c9","toSide":"top"},
+		{"id":"8f6d856260f3e33c","fromNode":"689e94012adc3f77","fromSide":"right","toNode":"66e03fa17477c815","toSide":"left"},
+		{"id":"d7f8fbe6dbb546df","fromNode":"54cfddb2a6674dcc","fromSide":"left","toNode":"67452283248d57c9","toSide":"right"},
+		{"id":"101bba4e040673f2","fromNode":"67452283248d57c9","fromSide":"bottom","toNode":"faf0dfd67e60a587","toSide":"top"},
+		{"id":"7225d8148fd5f155","fromNode":"faf0dfd67e60a587","fromSide":"right","toNode":"db24c37d8c0ca7dd","toSide":"left"}
 	]
 }

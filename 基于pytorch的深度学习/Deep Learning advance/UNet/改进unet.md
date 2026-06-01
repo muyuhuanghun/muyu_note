@@ -1,4 +1,4 @@
-**相关笔记**: [[UNet 训练代码]] | [[10.Basic CNN]] | [[unet-yolo-facenet study plan]] | [[UNet 学习白板]]
+**相关笔记**: [[UNet 训练代码]] | [[10.Basic CNN]] | [[unet-yolo-facenet study plan]] | [[UNet 学习白板.canvas]]
 
 ```
 import os

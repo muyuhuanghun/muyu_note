@@ -94,7 +94,7 @@
 
 # 🗺️ 深度学习实战进阶大通关：UNet、YOLO 与 FaceNet 自研路线图
 
-**相关笔记**: [[UNet 训练代码]] | [[改进unet]] | [[10.Basic CNN]] | [[11.引入RESNET的CNN网络]] | [[02.Attention Is All You Need 论文学习报告]] | [[UNet 学习白板]]
+**相关笔记**: [[UNet 训练代码]] | [[改进unet]] | [[10.Basic CNN]] | [[11.引入RESNET的CNN网络]] | [[02.Attention Is All You Need 论文学习报告]] | [[UNet 学习白板.canvas]]
 
 ## 🏷️ 文档元数据
 * **当前状态**：进行中 (In Progress)

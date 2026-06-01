@@ -4,7 +4,7 @@
 - 数据集：DRIVE (Digital Retinal Images for Vessel Extraction)
 - 结构特点：下采样抽语义 -> 上采样还空间 -> Skip Connection 补边缘
 
-**相关笔记**: [[10.Basic CNN]] | [[11.引入RESNET的CNN网络]] | [[改进unet]] | [[unet-yolo-facenet study plan]] | [[02.Attention Is All You Need 论文学习报告]] | [[UNet 学习白板]]
+**相关笔记**: [[10.Basic CNN]] | [[11.引入RESNET的CNN网络]] | [[改进unet]] | [[unet-yolo-facenet study plan]] | [[02.Attention Is All You Need 论文学习报告]] | [[UNet 学习白板.canvas]]
 
 ---
 
