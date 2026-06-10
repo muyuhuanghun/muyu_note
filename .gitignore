@@ -2,9 +2,16 @@
 .obsidian/workspace.json
 .obsidian/graph.json
 
+# 编译产物与IDE配置
+*.exe
+*.o
+*.out
+.vscode/
+
 # 账号和密码相关文件 (敏感信息)
 AI_CODING/pwd.md
 Github/Github Base Info.md
+Github/GitHub Recovery Codes.md
 Github/GitHub_token.canvas
 TENCENT INFO/
 GOOGLE INFO/
