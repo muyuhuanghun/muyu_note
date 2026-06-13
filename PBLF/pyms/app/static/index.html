@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PyMS 爬虫控制台</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="nav">
+    <span class="logo">PyMS</span>
+    <span class="subtitle">网页爬虫控制台</span>
+  </header>
+
+  <main>
+    <!-- 提交任务 -->
+    <section class="card">
+      <h2>创建任务</h2>
+      <form id="submit-form" class="form-row">
+        <input id="submit-url" type="url" placeholder="输入目标 URL" required>
+        <input id="submit-limit" type="number" min="1" max="1000" value="50" title="最大页面数">
+        <input id="submit-depth" type="number" min="1" max="5" value="1" title="爬取深度">
+        <input id="submit-keyword" type="text" placeholder="关键字（可选，逗号分隔）" title="只爬取包含关键字的链接">
+        <input id="submit-task-name" type="text" placeholder="任务名称（可选）">
+        <button type="submit">开始爬取</button>
+      </form>
+      <pre id="submit-output" class="output-box"></pre>
+    </section>
+
+    <!-- 命令控制台 -->
+    <section class="card">
+      <h2>命令控制台</h2>
+      <form id="command-form" class="form-row">
+        <input id="command-input" type="text" placeholder="输入命令，例如：task status task_id=task_xxx" required>
+        <button type="submit">执行</button>
+      </form>
+      <div class="quick-btns">
+        <button data-cmd="task status" type="button">状态</button>
+        <button data-cmd="crawl pause" type="button">暂停</button>
+        <button data-cmd="crawl resume" type="button">继续</button>
+        <button data-cmd="crawl stop" type="button">停止</button>
+        <button data-cmd="clean run" type="button">清洗</button>
+        <button id="btn-wordcloud" type="button">词云图</button>
+      </div>
+      <pre id="command-output" class="output-box"></pre>
+    </section>
+
+    <!-- 任务列表 + 详情 -->
+    <section class="two-col">
+      <div class="card">
+        <div class="card-header">
+          <h2>任务列表</h2>
+          <button id="refresh-tasks" type="button">刷新</button>
+        </div>
+        <div id="task-list"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h2>任务详情</h2>
+          <div>
+            <button id="delete-task" type="button" class="btn-danger">删除</button>
+            <button data-format="json" id="export-json" type="button">导出JSON</button>
+            <button data-format="csv" id="export-csv" type="button">导出CSV</button>
+          </div>
+        </div>
+        <div id="task-detail"></div>
+      </div>
+    </section>
+
+    <!-- 事件流 + 队列 -->
+    <section class="two-col">
+      <div class="card">
+        <h2>实时事件流 <span id="stream-status" class="tag">未连接</span></h2>
+        <div id="events-log" class="event-log"></div>
+      </div>
+
+      <div class="card">
+        <h2>队列面板</h2>
+        <div id="queue-summary" class="summary-row"></div>
+        <div id="queue-table-wrap"></div>
+      </div>
+    </section>
+
+    <!-- 结果 -->
+    <section class="card">
+      <div class="card-header">
+        <h2>结果数据</h2>
+        <div class="form-row">
+          <select id="results-view">
+            <option value="clean">Clean</option>
+            <option value="raw">Raw</option>
+          </select>
+          <input id="results-query" type="search" placeholder="搜索标题或正文">
+          <button id="results-search" type="button">搜索</button>
+        </div>
+      </div>
+      <div id="results-table-wrap"></div>
+      <div class="pager">
+        <button id="results-prev" type="button">上一页</button>
+        <span id="results-page-label">1 / 1</span>
+        <button id="results-next" type="button">下一页</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="wordcloud-display" style="max-width:960px;margin:20px auto;padding:0 16px;"></div>
+
+  <script src="/static/app.js?v=3"></script>
+</body>
+</html>
