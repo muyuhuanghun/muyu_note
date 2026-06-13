@@ -218,6 +218,87 @@ def generate_wordcloud(task_id: str) -> dict[str, Any]:
     }
 
 
+def generate_sentiment_analysis(task_id: str) -> dict[str, Any]:
+    """对任务清洗结果进行情感分析，返回正面/中立/负面计数。"""
+    _ensure_task_exists(task_id)
+
+    conn = get_connection()
+    try:
+        rows = conn.execute(
+            "SELECT clean_news_title, clean_news_content FROM clean_items WHERE task_id = ? AND clean_status = 'clean_done'",
+            (task_id,),
+        ).fetchall()
+    finally:
+        conn.close()
+
+    if not rows:
+        raise AppError(3001, "no clean data available for sentiment analysis")
+
+    positive = 0
+    neutral = 0
+    negative = 0
+    details: list[dict[str, Any]] = []
+
+    for row in rows:
+        text = " ".join(filter(None, [row["clean_news_title"], row["clean_news_content"]]))
+        score = _sentiment_score(text)
+        if score > 0.05:
+            label = "正面"
+            positive += 1
+        elif score < -0.05:
+            label = "负面"
+            negative += 1
+        else:
+            label = "中立"
+            neutral += 1
+        details.append({"title": row["clean_news_title"] or "", "score": round(score, 4), "label": label})
+
+    return {
+        "task_id": task_id,
+        "total": len(rows),
+        "positive": positive,
+        "neutral": neutral,
+        "negative": negative,
+        "details": details,
+    }
+
+
+# 📌 情感关键词词典（基于中文常见情感词）
+_POSITIVE_WORDS = {
+    "优秀", "成功", "突破", "创新", "增长", "提升", "进步", "发展", "繁荣",
+    "利好", "上涨", "盈利", "利润", "收益", "回报", "佳绩", "领先", "冠军",
+    "点赞", "好评", "满意", "开心", "快乐", "幸福", "感动", "温暖", "希望",
+    "强大", "卓越", "辉煌", "胜利", "赢", "赞", "棒", "好", "美", "善",
+    "喜欢", "热爱", "支持", "鼓励", "肯定", "赞美", "优秀", "出色", "杰出",
+    "机遇", "合作", "共赢", "和谐", "稳定", "安全", "健康", "积极", "乐观",
+    "感谢", "感恩", "惊喜", "精彩", "完美", "高效", "便捷", "友好", "热情",
+    "信任", "忠诚", "奉献", "拼搏", "奋斗", "成就", "荣耀", "辉煌",
+}
+
+_NEGATIVE_WORDS = {
+    "失败", "下跌", "亏损", "损失", "危机", "风险", "问题", "困难", "挑战",
+    "下降", "衰退", "萎缩", "恶化", "下滑", "暴跌", "崩盘", "崩溃", "灾难",
+    "批评", "质疑", "担忧", "焦虑", "恐惧", "愤怒", "不满", "失望", "悲伤",
+    "糟糕", "差", "坏", "烂", "丑", "恶", "假", "骗", "坑", "毒",
+    "腐败", "贪污", "违法", "犯罪", "暴力", "冲突", "战争", "恐怖", "污染",
+    "失业", "裁员", "破产", "倒闭", "罚款", "处罚", "警告", "召回", "投诉",
+    "病", "死", "伤", "亡", "残", "痛", "苦", "累", "烦", "愁",
+    "担心", "害怕", "紧张", "压力", "疲惫", "无奈", "无助", "孤独", "冷漠",
+}
+
+
+def _sentiment_score(text: str) -> float:
+    """计算文本情感得分 [-1, 1]，正值=正面，负值=负面。"""
+    import jieba
+    words = list(jieba.cut(text))
+    pos_count = sum(1 for w in words if w in _POSITIVE_WORDS)
+    neg_count = sum(1 for w in words if w in _NEGATIVE_WORDS)
+    total = pos_count + neg_count
+    if total == 0:
+        return 0.0
+    return (pos_count - neg_count) / total
+
+
 def _find_chinese_font() -> str | None:
     """查找系统中的中文字体。"""
     # Windows 字体路径

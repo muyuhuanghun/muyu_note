@@ -17,7 +17,7 @@ from fastapi.responses import FileResponse, JSONResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field
 
-from app.cleaning import export_results, generate_wordcloud, list_results
+from app.cleaning import export_results, generate_sentiment_analysis, generate_wordcloud, list_results
 from app.command_engine import execute_command
 from app.config import get_settings
 from app.db import init_db
@@ -156,6 +156,11 @@ def create_app() -> FastAPI:
             media_type=result["media_type"],
             headers={"Content-Disposition": f'attachment; filename="{result["filename"]}"'},
         )
+
+    @api.get("/v1/tasks/{task_id}/sentiment")
+    async def task_sentiment(task_id: str, request: Request) -> dict[str, Any]:
+        result = generate_sentiment_analysis(task_id)
+        return _ok(_rid(request), result)
 
     @api.get("/v1/events/stream")
     async def event_stream(task_id: str, request: Request, after_id: int = 0) -> StreamingResponse:

@@ -5,7 +5,7 @@ import base64
 import shlex
 from typing import Any
 
-from app.cleaning import generate_wordcloud, run_cleaning
+from app.cleaning import generate_sentiment_analysis, generate_wordcloud, run_cleaning
 from app.errors import AppError
 from app.service import (
     DEFAULT_DEPTH, DEFAULT_LIMIT,
@@ -96,10 +96,18 @@ def _cmd_wordcloud_run(params: dict[str, str]) -> dict[str, Any]:
     result = generate_wordcloud(task_id)
     # 将图片转为 base64 以便前端显示
     img_b64 = base64.b64encode(result["content"]).decode("ascii")
+    # 同时生成情感分析
+    sentiment = generate_sentiment_analysis(task_id)
     return {
-        "output": f"wordcloud generated: {task_id} ({len(result['content'])} bytes)",
+        "output": f"wordcloud generated: {task_id} ({len(result['content'])} bytes) | sentiment: positive={sentiment['positive']} neutral={sentiment['neutral']} negative={sentiment['negative']}",
         "task_id": task_id,
         "wordcloud": img_b64,
+        "sentiment": {
+            "positive": sentiment["positive"],
+            "neutral": sentiment["neutral"],
+            "negative": sentiment["negative"],
+            "total": sentiment["total"],
+        },
     }
 
 

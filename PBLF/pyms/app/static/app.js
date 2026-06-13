@@ -64,7 +64,7 @@ async function onCommand(e) {
     console.log("command response:", JSON.stringify(res).substring(0, 200));
     if (res.code === 0 && res.data && res.data.wordcloud) {
       showOutput("command-output", { message: "词云图已生成，请查看页面底部", task_id: res.data.task_id });
-      showWordcloudImage(res.data.wordcloud, res.data.task_id);
+      showWordcloudImage(res.data.wordcloud, res.data.task_id, res.data.sentiment);
     } else {
       showOutput("command-output", res);
     }
@@ -115,17 +115,57 @@ async function onExport(format) {
 }
 
 // 显示词云图图片
-function showWordcloudImage(base64Data, taskId) {
+function showWordcloudImage(base64Data, taskId, sentimentData) {
   const container = $("wordcloud-display");
   if (!container) return;
   const imgSrc = `data:image/png;base64,${base64Data}`;
+
+  let sentimentHtml = "";
+  if (sentimentData) {
+    const { positive, neutral, negative, total } = sentimentData;
+    const maxVal = Math.max(positive, neutral, negative, 1);
+    const pct = (v) => Math.round((v / total) * 100);
+    sentimentHtml = `
+      <div class="sentiment-section">
+        <h3 class="sentiment-title">📊 评论倾向分析</h3>
+        <div class="sentiment-summary">
+          <span class="sentiment-total">共 <strong>${total}</strong> 条评论</span>
+        </div>
+        <div class="sentiment-bars">
+          <div class="sentiment-bar-row">
+            <span class="sentiment-label positive">😊 正面</span>
+            <div class="sentiment-bar-track">
+              <div class="sentiment-bar-fill positive" style="width:${(positive / maxVal) * 100}%"></div>
+            </div>
+            <span class="sentiment-count">${positive} <small>(${pct(positive)}%)</small></span>
+          </div>
+          <div class="sentiment-bar-row">
+            <span class="sentiment-label neutral">😐 中立</span>
+            <div class="sentiment-bar-track">
+              <div class="sentiment-bar-fill neutral" style="width:${(neutral / maxVal) * 100}%"></div>
+            </div>
+            <span class="sentiment-count">${neutral} <small>(${pct(neutral)}%)</small></span>
+          </div>
+          <div class="sentiment-bar-row">
+            <span class="sentiment-label negative">😟 负面</span>
+            <div class="sentiment-bar-track">
+              <div class="sentiment-bar-fill negative" style="width:${(negative / maxVal) * 100}%"></div>
+            </div>
+            <span class="sentiment-count">${negative} <small>(${pct(negative)}%)</small></span>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
   container.innerHTML = `
-    <div style="text-align:center; padding:20px; background:var(--card,#1e1e2e); border-radius:12px; margin-bottom:20px;">
-      <h3 style="margin-bottom:12px;">词云图 — ${esc(taskId)}</h3>
-      <img src="${imgSrc}" alt="词云图" style="max-width:100%; border-radius:8px; margin-bottom:10px;">
+    <div class="wordcloud-card">
+      <h3>词云图 — ${esc(taskId)}</h3>
+      <img src="${imgSrc}" alt="词云图" class="wordcloud-img">
       <br>
-      <a href="${imgSrc}" download="${taskId}_wordcloud.png" style="color:var(--accent); text-decoration:underline;">点击下载词云图</a>
+      <a href="${imgSrc}" download="${taskId}_wordcloud.png" class="wordcloud-download">点击下载词云图</a>
     </div>
+    ${sentimentHtml}
   `;
   container.scrollIntoView({ behavior: "smooth" });
 }
@@ -144,7 +184,7 @@ async function runWordcloud() {
     });
     if (res.code === 0 && res.data && res.data.wordcloud) {
       showOutput("command-output", { message: "词云图已生成，请查看页面下方", task_id: res.data.task_id });
-      showWordcloudImage(res.data.wordcloud, res.data.task_id);
+      showWordcloudImage(res.data.wordcloud, res.data.task_id, res.data.sentiment);
     } else {
       showOutput("command-output", res);
     }
