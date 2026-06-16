@@ -9,14 +9,12 @@ import unittest
 import uuid
 from pathlib import Path
 
-from fastapi.testclient import TestClient
-
 from app import db
 from app.cleaning import RawItem
 from app.command_engine import execute_command
-from app.server import create_app
 from app.service import get_task
 from app.worker import CrawlResult, reset_fetcher, set_fetcher, shutdown_queue_runner
+from tests.helpers import shared_client as client
 
 
 class DayTenTests(unittest.TestCase):
@@ -24,11 +22,9 @@ class DayTenTests(unittest.TestCase):
         self.temp_dir = Path("tests/.tmp") / uuid.uuid4().hex
         self.temp_dir.mkdir(parents=True, exist_ok=True)
         db.DB_PATH = self.temp_dir / "app.db"
-        self.client = TestClient(create_app())
-        self.client.__enter__()
+        db.init_db()
 
     def tearDown(self) -> None:
-        self.client.__exit__(None, None, None)
         reset_fetcher()
         shutdown_queue_runner()
         shutil.rmtree(self.temp_dir, ignore_errors=True)
@@ -36,10 +32,10 @@ class DayTenTests(unittest.TestCase):
     def test_export_endpoint_returns_json_attachment(self) -> None:
         task_id = self._create_clean_task()
 
-        response = self.client.post(f"/v1/tasks/{task_id}/export", json={"format": "json"})
+        _, response = client.post(f"/v1/tasks/{task_id}/export", json={"format": "json"})
 
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.headers["content-type"], "application/json; charset=utf-8")
+        self.assertEqual(response.status, 200)
+        self.assertIn("application/json", response.content_type)
 
         payload = json.loads(response.text)
         self.assertEqual(len(payload), 1)
@@ -49,10 +45,10 @@ class DayTenTests(unittest.TestCase):
     def test_export_endpoint_returns_csv_attachment(self) -> None:
         task_id = self._create_clean_task()
 
-        response = self.client.post(f"/v1/tasks/{task_id}/export", json={"format": "csv"})
+        _, response = client.post(f"/v1/tasks/{task_id}/export", json={"format": "csv"})
 
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.headers["content-type"], "text/csv; charset=utf-8")
+        self.assertEqual(response.status, 200)
+        self.assertIn("text/csv", response.content_type)
 
         rows = list(csv.DictReader(io.StringIO(response.text)))
         self.assertEqual(len(rows), 1)
@@ -62,17 +58,17 @@ class DayTenTests(unittest.TestCase):
     def test_export_endpoint_rejects_invalid_format(self) -> None:
         task_id = self._create_clean_task()
 
-        response = self.client.post(f"/v1/tasks/{task_id}/export", json={"format": "xml"})
+        _, response = client.post(f"/v1/tasks/{task_id}/export", json={"format": "xml"})
 
-        self.assertEqual(response.status_code, 400)
-        body = response.json()
+        self.assertEqual(response.status, 400)
+        body = response.json
         self.assertEqual(body["code"], 1001)
 
     def test_export_endpoint_returns_not_found_for_unknown_task(self) -> None:
-        response = self.client.post("/v1/tasks/task_missing/export", json={"format": "json"})
+        _, response = client.post("/v1/tasks/task_missing/export", json={"format": "json"})
 
-        self.assertEqual(response.status_code, 404)
-        body = response.json()
+        self.assertEqual(response.status, 404)
+        body = response.json
         self.assertEqual(body["code"], 2001)
 
     def _create_clean_task(self) -> str:

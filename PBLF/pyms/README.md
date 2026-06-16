@@ -1,9 +1,10 @@
 # PyMS 网页爬虫控制台
 
-一个基于 Python 的网页爬虫控制台系统。通过浏览器提交 URL，系统自动抓取网页、清洗数据、生成词云图、展示结果。
+一个基于 Python Sanic 框架的网页爬虫控制台系统。通过浏览器提交 URL，系统自动抓取网页、清洗数据、生成词云图、进行情感分析、展示结果。
 
 ## 功能
 
+- **⚡ 一键执行**：输入 URL 后自动完成爬取 → 数据清洗 → 词云图 + 情感分析，全程无需手动干预
 - 输入 URL 创建爬取任务（支持 limit/depth/关键字/任务名称）
 - 命令行式控制台（开始/暂停/继续/停止/清洗/删除/词云图）
 - 实时事件流（SSE）显示爬取进度
@@ -11,6 +12,7 @@
 - 关键字过滤：支持多个关键字逗号分隔，不区分大小写
 - 结果导出为 JSON 或 CSV
 - 词云图生成：基于 jieba 分词和 wordcloud 生成文本词云
+- 情感分析：基于 Senta 模型（snownlp）对文本进行正面/中立/负面倾向分析
 
 ## 快速开始
 
@@ -30,29 +32,30 @@ python main.py
 ```
 pyms/
 ├── main.py                 # 入口文件
-├── requirements.txt        # 依赖（7个包）
+├── requirements.txt        # 依赖（8个包）
 ├── app/
-│   ├── server.py           # Web 路由（FastAPI）
+│   ├── server.py           # Web 路由（Sanic）
 │   ├── config.py           # 配置读取
 │   ├── db.py               # SQLite 数据库
 │   ├── service.py          # 任务管理
 │   ├── command_engine.py   # 命令解析
 │   ├── worker.py           # 爬虫 Worker
-│   ├── cleaning.py         # 数据清洗与词云图
+│   ├── cleaning.py         # 数据清洗、词云图、情感分析
 │   ├── security.py         # URL 安全校验（防 SSRF）
 │   ├── state_machine.py    # 任务状态机（6种状态）
 │   ├── errors.py           # 错误码
 │   └── static/
 │       ├── index.html      # 前端页面
 │       ├── styles.css      # 深色主题样式
-│       └── app.js          # 前端逻辑（SSE/词云图）
-└── tests/                  # 测试（8个模块 37个用例）
+│       └── app.js          # 前端逻辑（SSE/词云图/情感分析）
+└── tests/                  # 测试（9个模块 39个用例）
     ├── test_day1_day2.py   # 状态机、URL校验、任务创建
     ├── test_day3_day4.py   # 命令引擎、API端点
     ├── test_day5_day6.py   # 爬虫Worker、队列消费
     ├── test_day7_day8.py   # 数据清洗、结果查询
     ├── test_day9.py        # SSE事件流
     ├── test_day10.py       # JSON/CSV导出
+    ├── test_day11.py       # 前端页面与静态资源
     ├── test_keyword.py     # 关键字过滤
     └── test_wordcloud.py   # 词云图生成
 ```
@@ -70,7 +73,7 @@ pyms/
 | `task delete task_id=<...>` | 删除任务 |
 | `queue list task_id=<...> [state=<...>]` | 查看队列 |
 | `clean run task_id=<...>` | 执行数据清洗 |
-| `wordcloud run task_id=<...>` | 生成词云图 |
+| `wordcloud run task_id=<...>` | 生成词云图（含情感分析） |
 
 ## API 接口
 
@@ -84,8 +87,9 @@ pyms/
 | GET | `/v1/tasks/{id}/queue` | 队列列表（state过滤, 分页） |
 | GET | `/v1/tasks/{id}/results` | 结果查询（view=raw/clean, 分页, 搜索） |
 | POST | `/v1/tasks/{id}/export` | 导出结果（json/csv） |
-| GET | `/v1/tasks/{id}/wordcloud` | 生成词云图(PNG) |
-| GET | `/v1/events/stream` | 实时事件流(SSE, task_id, after_id) |
+| GET | `/v1/tasks/{id}/wordcloud` | 生成词云图（PNG） |
+| GET | `/v1/tasks/{id}/sentiment` | 情感分析（Senta 模型，返回正面/中立/负面统计） |
+| GET | `/v1/events/stream` | 实时事件流（SSE, task_id, after_id） |
 | GET | `/v1/health` | 健康检查 |
 
 ## 数据库表

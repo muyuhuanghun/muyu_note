@@ -6,14 +6,12 @@ import unittest
 import uuid
 from pathlib import Path
 
-from fastapi.testclient import TestClient
-
 from app import db
 from app.cleaning import RawItem
 from app.command_engine import execute_command
-from app.server import create_app
 from app.service import get_task
 from app.worker import CrawlResult, reset_fetcher, set_fetcher, shutdown_queue_runner
+from tests.helpers import shared_client as client
 
 
 class DaySevenDayEightTests(unittest.TestCase):
@@ -21,11 +19,9 @@ class DaySevenDayEightTests(unittest.TestCase):
         self.temp_dir = Path("tests/.tmp") / uuid.uuid4().hex
         self.temp_dir.mkdir(parents=True, exist_ok=True)
         db.DB_PATH = self.temp_dir / "app.db"
-        self.client = TestClient(create_app())
         db.init_db()
 
     def tearDown(self) -> None:
-        self.client.close()
         reset_fetcher()
         shutdown_queue_runner()
         shutil.rmtree(self.temp_dir, ignore_errors=True)
@@ -163,24 +159,24 @@ class DaySevenDayEightTests(unittest.TestCase):
         self._wait_for_terminal_status(started["task_id"])
         execute_command(f"clean run task_id={started['task_id']}")
 
-        raw_response = self.client.get(
+        _, raw_response = client.get(
             f"/v1/tasks/{started['task_id']}/results",
             params={"view": "raw", "q": "Alpha"},
         )
-        clean_response = self.client.get(
+        _, clean_response = client.get(
             f"/v1/tasks/{started['task_id']}/results",
             params={"view": "clean", "page": 1, "page_size": 1},
         )
 
-        raw_body = raw_response.json()
-        clean_body = clean_response.json()
+        raw_body = raw_response.json
+        clean_body = clean_response.json
 
-        self.assertEqual(raw_response.status_code, 200)
+        self.assertEqual(raw_response.status, 200)
         self.assertEqual(raw_body["data"]["view"], "raw")
         self.assertEqual(raw_body["data"]["total"], 1)
         self.assertEqual(raw_body["data"]["items"][0]["news_title"], "Alpha News")
 
-        self.assertEqual(clean_response.status_code, 200)
+        self.assertEqual(clean_response.status, 200)
         self.assertEqual(clean_body["data"]["view"], "clean")
         self.assertEqual(clean_body["data"]["page_size"], 1)
         self.assertEqual(len(clean_body["data"]["items"]), 1)

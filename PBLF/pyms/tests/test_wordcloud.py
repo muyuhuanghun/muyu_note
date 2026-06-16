@@ -7,14 +7,12 @@ import unittest
 import uuid
 from pathlib import Path
 
-from fastapi.testclient import TestClient
-
 from app import db
 from app.cleaning import RawItem
 from app.command_engine import execute_command
-from app.server import create_app
 from app.service import get_task
 from app.worker import CrawlResult, reset_fetcher, set_fetcher, shutdown_queue_runner
+from tests.helpers import shared_client as client
 
 
 class WordcloudTests(unittest.TestCase):
@@ -22,11 +20,9 @@ class WordcloudTests(unittest.TestCase):
         self.temp_dir = Path("tests/.tmp") / uuid.uuid4().hex
         self.temp_dir.mkdir(parents=True, exist_ok=True)
         db.DB_PATH = self.temp_dir / "app.db"
-        self.client = TestClient(create_app())
-        self.client.__enter__()
+        db.init_db()
 
     def tearDown(self) -> None:
-        self.client.__exit__(None, None, None)
         reset_fetcher()
         shutdown_queue_runner()
         shutil.rmtree(self.temp_dir, ignore_errors=True)
@@ -35,19 +31,19 @@ class WordcloudTests(unittest.TestCase):
         """测试词云图接口返回 PNG 图片。"""
         task_id = self._create_clean_task()
 
-        response = self.client.get(f"/v1/tasks/{task_id}/wordcloud")
+        _, response = client.get(f"/v1/tasks/{task_id}/wordcloud")
 
-        self.assertEqual(response.status_code, 200)
-        self.assertEqual(response.headers["content-type"], "image/png")
+        self.assertEqual(response.status, 200)
+        self.assertIn("image/png", response.content_type)
         # PNG 文件头
         self.assertTrue(response.content[:4] == b'\x89PNG')
 
     def test_wordcloud_returns_not_found_for_unknown_task(self) -> None:
         """测试不存在的任务返回 404。"""
-        response = self.client.get("/v1/tasks/task_missing/wordcloud")
+        _, response = client.get("/v1/tasks/task_missing/wordcloud")
 
-        self.assertEqual(response.status_code, 404)
-        body = response.json()
+        self.assertEqual(response.status, 404)
+        body = response.json
         self.assertEqual(body["code"], 2001)
 
     def test_wordcloud_returns_error_when_no_clean_data(self) -> None:
@@ -62,10 +58,10 @@ class WordcloudTests(unittest.TestCase):
         self._wait_for_terminal_status(started["task_id"])
         # 不执行 clean run，直接请求词云图
 
-        response = self.client.get(f"/v1/tasks/{started['task_id']}/wordcloud")
+        _, response = client.get(f"/v1/tasks/{started['task_id']}/wordcloud")
 
-        self.assertEqual(response.status_code, 400)
-        body = response.json()
+        self.assertEqual(response.status, 400)
+        body = response.json
         self.assertEqual(body["code"], 3001)
 
     def _create_clean_task(self) -> str:

@@ -31,6 +31,8 @@ function init() {
   });
   // 词云图按钮 — 直接调用 API，不走命令表单
   $("btn-wordcloud").addEventListener("click", runWordcloud);
+  // 一键执行按钮
+  $("auto-form").addEventListener("submit", onAutoRun);
   loadTasks();
 }
 
@@ -118,6 +120,7 @@ async function onExport(format) {
 function showWordcloudImage(base64Data, taskId, sentimentData) {
   const container = $("wordcloud-display");
   if (!container) return;
+  container.style.display = "block";
   const imgSrc = `data:image/png;base64,${base64Data}`;
 
   let sentimentHtml = "";
@@ -326,5 +329,180 @@ function showOutput(id, data) { $(id).textContent = JSON.stringify(data, null, 2
 function detailItem(label, value) { return `<dl class="detail-item"><dt>${esc(label)}</dt><dd>${esc(value)}</dd></dl>`; }
 function totalPages(total) { return Math.max(1, Math.ceil(Number(total || 0) / 15)); }
 function esc(s) { return String(s).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;"); }
+
+// 一键执行：爬取 → 清洗 → 词云图+情感分析
+async function onAutoRun(e) {
+  e.preventDefault();
+
+  const url = $("auto-url").value.trim();
+  if (!url) return;
+
+  const limit = Number($("auto-limit").value) || 50;
+  const depth = Number($("auto-depth").value) || 1;
+  const keyword = $("auto-keyword").value.trim();
+  const taskName = $("auto-task-name").value.trim();
+
+  // 禁用按钮，显示进度
+  $("btn-auto-run").disabled = true;
+  $("auto-progress").style.display = "block";
+  $("auto-output").textContent = "";
+
+  // 重置步骤状态
+  const steps = ["step-crawl", "step-clean", "step-wordcloud"];
+  steps.forEach(id => {
+    $(id).className = "progress-step";
+  });
+
+  try {
+    // 第一步：爬取
+    updateStep("step-crawl", "active");
+    updateProgress(10, "正在创建爬取任务...");
+    $("auto-output").textContent = "步骤 1/3: 开始爬取...\n";
+
+    const crawlPayload = { url, limit, depth };
+    if (keyword) crawlPayload.keyword = keyword;
+    if (taskName) crawlPayload.task_name = taskName;
+
+    const crawlRes = await api("/v1/crawl/submit", {
+      method: "POST",
+      body: JSON.stringify(crawlPayload),
+    });
+
+    if (crawlRes.code !== 0 || !crawlRes.data?.task_id) {
+      throw new Error(`爬取任务创建失败: ${crawlRes.message || "未知错误"}`);
+    }
+
+    const taskId = crawlRes.data.task_id;
+    selectTask(taskId);
+    $("auto-output").textContent += `任务已创建: ${taskId}\n等待爬取完成...\n`;
+    updateProgress(20, "爬取中，请稍候...");
+
+    // 等待爬取完成
+    await waitForTaskComplete(taskId, (progress, status) => {
+      const pct = 20 + Math.round(progress * 0.4); // 20% - 60%
+      updateProgress(pct, `爬取中: ${progress}%`);
+    });
+
+    updateStep("step-crawl", "done");
+    $("auto-output").textContent += "✅ 爬取完成！\n\n";
+    updateProgress(60, "爬取完成，开始清洗...");
+
+    // 第二步：清洗
+    updateStep("step-clean", "active");
+    $("auto-output").textContent += "步骤 2/3: 数据清洗...\n";
+
+    const cleanRes = await api("/v1/command", {
+      method: "POST",
+      body: JSON.stringify({ command: `clean run task_id=${taskId}` }),
+    });
+
+    if (cleanRes.code !== 0) {
+      throw new Error(`数据清洗失败: ${cleanRes.message || "未知错误"}`);
+    }
+
+    updateStep("step-clean", "done");
+    $("auto-output").textContent += `✅ 清洗完成: ${cleanRes.data?.output || ""}\n\n`;
+    updateProgress(75, "清洗完成，生成词云图...");
+
+    // 第三步：词云图 + 情感分析
+    updateStep("step-wordcloud", "active");
+    $("auto-output").textContent += "步骤 3/3: 生成词云图和情感分析...\n";
+
+    const wordcloudRes = await api("/v1/command", {
+      method: "POST",
+      body: JSON.stringify({ command: `wordcloud run task_id=${taskId}` }),
+    });
+
+    if (wordcloudRes.code !== 0) {
+      throw new Error(`词云图生成失败: ${wordcloudRes.message || "未知错误"}`);
+    }
+
+    updateStep("step-wordcloud", "done");
+    $("auto-output").textContent += `✅ 词云图和情感分析完成！\n`;
+    updateProgress(100, "全部完成！");
+
+    // 显示词云图
+    if (wordcloudRes.data?.wordcloud) {
+      showWordcloudImage(wordcloudRes.data.wordcloud, taskId, wordcloudRes.data.sentiment);
+      $("auto-output").textContent += "\n词云图已显示在页面下方，请滚动查看。\n";
+    }
+
+    // 刷新任务列表
+    await loadTasks();
+
+  } catch (err) {
+    $("auto-output").textContent += `\n❌ 错误: ${err.message}\n`;
+    // 标记当前活动步骤为错误
+    steps.forEach(id => {
+      if ($(id).classList.contains("active")) {
+        $(id).className = "progress-step error";
+      }
+    });
+    updateProgress(-1, `执行失败: ${err.message}`);
+  } finally {
+    $("btn-auto-run").disabled = false;
+  }
+}
+
+// 更新步骤状态
+function updateStep(stepId, status) {
+  const el = $(stepId);
+  el.className = `progress-step ${status}`;
+}
+
+// 更新进度条
+function updateProgress(pct, statusText) {
+  if (pct >= 0) {
+    $("progress-bar-fill").style.width = `${pct}%`;
+  }
+  $("progress-status").textContent = statusText;
+}
+
+// 等待任务完成
+function waitForTaskComplete(taskId, onProgress) {
+  return new Promise((resolve, reject) => {
+    const pollInterval = 2000; // 2秒轮询一次
+    const maxWait = 300000; // 最大等待5分钟
+    const startTime = Date.now();
+
+    function poll() {
+      // 检查超时
+      if (Date.now() - startTime > maxWait) {
+        reject(new Error("任务超时（超过5分钟）"));
+        return;
+      }
+
+      api(`/v1/tasks/${taskId}`).then(res => {
+        if (res.code !== 0 || !res.data) {
+          reject(new Error("无法获取任务状态"));
+          return;
+        }
+
+        const task = res.data;
+        const progress = task.progress || 0;
+
+        if (onProgress) {
+          onProgress(progress, task.status);
+        }
+
+        if (task.status === "success") {
+          resolve(task);
+        } else if (task.status === "failed") {
+          reject(new Error("爬取任务失败"));
+        } else if (task.status === "stopped") {
+          reject(new Error("爬取任务已停止"));
+        } else {
+          // 继续轮询
+          setTimeout(poll, pollInterval);
+        }
+      }).catch(err => {
+        reject(new Error(`查询任务状态失败: ${err.message}`));
+      });
+    }
+
+    // 开始轮询
+    poll();
+  });
+}
 
 init();

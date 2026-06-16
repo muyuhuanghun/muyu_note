@@ -7,14 +7,12 @@ import unittest
 import uuid
 from pathlib import Path
 
-from fastapi.testclient import TestClient
-
 from app import db
 from app.cleaning import RawItem
 from app.command_engine import execute_command
-from app.server import create_app
 from app.service import get_task, list_event_logs
 from app.worker import CrawlResult, reset_fetcher, set_fetcher, shutdown_queue_runner
+from tests.helpers import shared_client as client
 
 
 class DayNineTests(unittest.TestCase):
@@ -22,11 +20,9 @@ class DayNineTests(unittest.TestCase):
         self.temp_dir = Path("tests/.tmp") / uuid.uuid4().hex
         self.temp_dir.mkdir(parents=True, exist_ok=True)
         db.DB_PATH = self.temp_dir / "app.db"
-        self.client = TestClient(create_app())
-        self.client.__enter__()
+        db.init_db()
 
     def tearDown(self) -> None:
-        self.client.__exit__(None, None, None)
         reset_fetcher()
         shutdown_queue_runner()
         shutil.rmtree(self.temp_dir, ignore_errors=True)
@@ -53,10 +49,10 @@ class DayNineTests(unittest.TestCase):
         started = execute_command("crawl start url=https://example.com/news")
         self._wait_for_terminal_status(started["task_id"])
 
-        with self.client.stream("GET", "/v1/events/stream", params={"task_id": started["task_id"]}) as response:
-            body = "".join(chunk for chunk in response.iter_text())
+        _, response = client.get("/v1/events/stream", params={"task_id": started["task_id"]})
+        body = response.text
 
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status, 200)
         events = self._parse_sse_body(body)
         event_types = [event["event_type"] for event in events]
 
@@ -89,23 +85,22 @@ class DayNineTests(unittest.TestCase):
         existing_events = list_event_logs(started["task_id"])
         cutoff_id = existing_events[-1]["id"]
 
-        with self.client.stream(
-            "GET",
+        _, response = client.get(
             "/v1/events/stream",
             params={"task_id": started["task_id"], "after_id": cutoff_id},
-        ) as response:
-            body = "".join(chunk for chunk in response.iter_text())
+        )
+        body = response.text
 
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status, 200)
         events = self._parse_sse_body(body)
         # 任务已完成，没有新事件
         self.assertEqual(len(events), 0)
 
     def test_event_stream_returns_not_found_for_unknown_task(self) -> None:
-        response = self.client.get("/v1/events/stream", params={"task_id": "task_missing"})
+        _, response = client.get("/v1/events/stream", params={"task_id": "task_missing"})
 
-        self.assertEqual(response.status_code, 404)
-        body = response.json()
+        self.assertEqual(response.status, 404)
+        body = response.json
         self.assertEqual(body["code"], 2001)
         self.assertIsNone(body["data"])
 

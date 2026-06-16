@@ -13,6 +13,32 @@
   </header>
 
   <main>
+    <!-- 一键执行 -->
+    <section class="card highlight-card">
+      <h2>⚡ 一键执行</h2>
+      <p class="hint">自动完成：爬取 → 数据清洗 → 词云图 + 情感分析</p>
+      <form id="auto-form" class="form-row">
+        <input id="auto-url" type="url" placeholder="输入目标 URL" required>
+        <input id="auto-limit" type="number" min="1" max="1000" value="50" title="最大页面数">
+        <input id="auto-depth" type="number" min="1" max="5" value="1" title="爬取深度">
+        <input id="auto-keyword" type="text" placeholder="关键字（可选，逗号分隔）" title="只爬取包含关键字的链接">
+        <input id="auto-task-name" type="text" placeholder="任务名称（可选）">
+        <button id="btn-auto-run" type="submit" class="btn-primary">🚀 开始执行</button>
+      </form>
+      <div id="auto-progress" class="progress-container" style="display:none;">
+        <div class="progress-steps">
+          <div id="step-crawl" class="progress-step">📥 爬取中...</div>
+          <div id="step-clean" class="progress-step">🧹 清洗中...</div>
+          <div id="step-wordcloud" class="progress-step">📊 生成中...</div>
+        </div>
+        <div class="progress-bar-track">
+          <div id="progress-bar-fill" class="progress-bar-fill" style="width:0%"></div>
+        </div>
+        <div id="progress-status" class="progress-status"></div>
+      </div>
+      <pre id="auto-output" class="output-box"></pre>
+    </section>
+
     <!-- 提交任务 -->
     <section class="card">
       <h2>创建任务</h2>
@@ -102,10 +128,11 @@
         <button id="results-next" type="button">下一页</button>
       </div>
     </section>
+
+    <!-- 词云图和情感分析显示区域 -->
+    <section id="wordcloud-display" class="card" style="display:none;"></section>
   </main>
 
-  <div id="wordcloud-display" style="max-width:960px;margin:20px auto;padding:0 16px;"></div>
-
-  <script src="/static/app.js?v=3"></script>
+  <script src="/static/app.js?v=4"></script>
 </body>
 </html>

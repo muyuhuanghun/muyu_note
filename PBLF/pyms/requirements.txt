@@ -1,7 +1,8 @@
-fastapi==0.135.3
-uvicorn==0.44.0
+sanic==23.12.1
+sanic-testing==23.12.0
 requests==2.33.1
 beautifulsoup4==4.14.3
 wordcloud==1.9.4
 jieba==0.42.1
 Pillow==11.1.0
+snownlp==0.12.3

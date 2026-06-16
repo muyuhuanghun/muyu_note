@@ -5,13 +5,11 @@ import unittest
 import uuid
 from pathlib import Path
 
-from fastapi.testclient import TestClient
-
 from app import db
 from app.command_engine import execute_command
-from app.server import create_app
 from app.service import get_task, submit_task
 from app.worker import CrawlResult, reset_fetcher, set_fetcher, shutdown_queue_runner
+from tests.helpers import shared_client as client
 
 
 class DayThreeDayFourTests(unittest.TestCase):
@@ -19,11 +17,9 @@ class DayThreeDayFourTests(unittest.TestCase):
         self.temp_dir = Path("tests/.tmp") / uuid.uuid4().hex
         self.temp_dir.mkdir(parents=True, exist_ok=True)
         db.DB_PATH = self.temp_dir / "app.db"
-        self.client = TestClient(create_app())
         db.init_db()
 
     def tearDown(self) -> None:
-        self.client.close()
         reset_fetcher()
         shutdown_queue_runner()
         shutil.rmtree(self.temp_dir, ignore_errors=True)
@@ -68,7 +64,7 @@ class DayThreeDayFourTests(unittest.TestCase):
         self.assertIn("total=1", result["output"])
 
     def test_command_endpoint_uses_supplied_request_id_and_logs_result(self) -> None:
-        response = self.client.post(
+        _, response = client.post(
             "/v1/command",
             json={
                 "command": "crawl start url=https://example.com/news limit=5 depth=1",
@@ -76,19 +72,19 @@ class DayThreeDayFourTests(unittest.TestCase):
             },
         )
 
-        body = response.json()
-        self.assertEqual(response.status_code, 200)
+        body = response.json
+        self.assertEqual(response.status, 200)
         self.assertEqual(body["request_id"], "req_manual_001")
         self.assertIn("task started", body["data"]["output"])
 
     def test_command_endpoint_returns_app_error_payload(self) -> None:
-        response = self.client.post(
+        _, response = client.post(
             "/v1/command",
             json={"command": "crawl pause task_id=task_missing", "request_id": "req_missing"},
         )
 
-        body = response.json()
-        self.assertEqual(response.status_code, 404)
+        body = response.json
+        self.assertEqual(response.status, 404)
         self.assertEqual(body["request_id"], "req_missing")
         self.assertEqual(body["code"], 2001)
 
