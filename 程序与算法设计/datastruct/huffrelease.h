@@ -30,7 +30,7 @@ static void encoding(HuffNode ht[] , Tcode book[] , int n)
         book[i].ch = ht[i].data; //保存字符
         idx = i;
         j = n;
-        while(p = ht[idx].parent >0)
+        while((p = ht[idx].parent) >= 0)
         {
             if(ht[p].lchild == idx)
             {
@@ -44,9 +44,10 @@ static void encoding(HuffNode ht[] , Tcode book[] , int n)
             }
             idx = p;
         }
-        strcpy(book[i].code , &str[j]);//保存编码字符串
+        strcpy(book[i].code , &str[j]);//保存编码字符�??
         book[i].lenth = n - j; //保存编码长度
     }
+    free(str);
 }
 
 

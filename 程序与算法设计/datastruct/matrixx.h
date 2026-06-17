@@ -83,7 +83,7 @@ static tsmatrix * matrixadd(tsmatrix *A,tsmatrix * B)
         }
         else if(A->data[i].row<B->data[j].row)
         {
-            if (c->len >= MaxSize)
+            if (c->len >= MaxSizex)
             {
                 free(c);
                 return NULL;

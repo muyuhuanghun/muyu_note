@@ -14,9 +14,9 @@ typedef struct BiTNode
     struct BiTNode *left;
     struct BiTNode *right;
     struct BiTNode *parent;
-} BiTNode, *BiTree;//二叉树类型定义
+} BiTNode, *BiTree;//二叉树类型定�?
 
-static void CreateBitree(BiTree *Bt)//先序输入二叉树
+static void CreateBitree(BiTree *Bt)//先序输入二叉�?
 {
     int x;
     scanf("%d", &x);
@@ -66,7 +66,7 @@ static void preorderinarr(BiTree root ,int arr[] ,int *index)
         preorderinarr(root->left, arr, index);
         preorderinarr(root->right, arr, index);
     }
-}//先序遍历将树的节点值存入数组
+}//先序遍历将树的节点值存入数�?
 
 static int getpreorder(BiTree root, int arr[])
 {
@@ -104,22 +104,27 @@ static int CountNodes(BiTree root)//统计节点个数
     return 1 + CountNodes(root->left) + CountNodes(root->right);
 }
 
-static int PostTreeDepth(BiTree root, int h)//后序遍历求树深度
+static int _post_tree_depth(BiTree root, int h, int *maxDepth)
 {
-    static int maxDepth = 0;
     if(root == NULL)
     {
-        if(h > maxDepth)
+        if(h > *maxDepth)
         {
-            maxDepth = h;
+            *maxDepth = h;
         }
     }
     else
     {
-        PostTreeDepth(root->left, h + 1);
-        PostTreeDepth(root->right, h + 1);
+        _post_tree_depth(root->left, h + 1, maxDepth);
+        _post_tree_depth(root->right, h + 1, maxDepth);
     }
-    return maxDepth;
+    return *maxDepth;
+}
+
+static int PostTreeDepth(BiTree root, int h)//后序遍历求树深度
+{
+    int maxDepth = 0;
+    return _post_tree_depth(root, h, &maxDepth);
 }
 
 static BiTree KillTree(BiTree root)//后序遍历销毁树
@@ -199,14 +204,14 @@ static void PreOrder1(BiTNode *b) {
        initstack(&st);			//初始化栈st
        if (b!=NULL) 
        {
-            pushtree(&st,b);			//根结点进栈
+            pushtree(&st,b);			//根结点进�?
             while (!stackisempty(&st)) 
-            { 	//栈不为空时循环
+            { 	//栈不为空时循�?
                     poptree(&st,&p);			//退栈结点p并访问它
                     printf("%d ",p->data);
-                    if (p->right!=NULL)	//有右孩子时将其进栈
+                    if (p->right!=NULL)	//有右孩子时将其进�?
                         pushtree(&st,p->right);
-                    if (p->left!=NULL)	//有左孩子时将其进栈
+                    if (p->left!=NULL)	//有左孩子时将其进�?
                         pushtree(&st,p->left);
                 }
             printf("\n");
@@ -219,15 +224,15 @@ static void preorder2(BiTNode *b) {
        stacktree st;				//定义栈指针st
        initstack(&st);			//初始化栈st
        while (p!=NULL || !stackisempty(&st)) 
-       { 	//p不空或栈不空时循环
+       { 	//p不空或栈不空时循�?
             while (p!=NULL) 
-            { 	//p不空时循环
+            { 	//p不空时循�?
                     printf("%d ",p->data);	//访问结点p
                     pushtree(&st,p);			//结点p进栈
-                    p=p->left;				//p指向左孩子
+                    p=p->left;				//p指向左孩�?
                 }
             if (!stackisempty(&st)) 
-            { 	//栈不空时退栈并令p指向退栈结点的右孩子
+            { 	//栈不空时退栈并令p指向退栈结点的右孩�?
                     poptree(&st,&p);
                     p=p->right;
                 }
@@ -242,14 +247,14 @@ static void inorder(BiTNode * root)
     stacktree st;				//定义栈指针st
     initstack(&st);			//初始化栈st
     while (p!=NULL || !stackisempty(&st)) 
-    { 	//p不空或栈不空时循环
+    { 	//p不空或栈不空时循�?
         while (p!=NULL) 
-        { 	//p不空时循环
+        { 	//p不空时循�?
             pushtree(&st,p);			//结点p进栈
-            p=p->left;				//p指向左孩子
+            p=p->left;				//p指向左孩�?
         }
         if (!stackisempty(&st)) 
-        { 	//栈不空时退栈并令p指向退栈结点的右孩子
+        { 	//栈不空时退栈并令p指向退栈结点的右孩�?
             poptree(&st,&p);
             printf("%d ",p->data);	//访问结点p
             p=p->right;
