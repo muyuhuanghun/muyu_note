@@ -20,3 +20,24 @@ UESTC INFO/
 
 # 研究项目（学术机密，不公开）
 cpp to verilog/
+
+# IDE配置
+.idea/
+
+# Python缓存与临时文件
+__pycache__/
+*.pyc
+*.tmp/
+.tmp/
+
+# 数据库文件
+*.db
+*.sqlite
+
+# 大型二进制文件（PPT/Word/Excel等）
+*.pptx
+*.docx
+*.xlsx
+
+# PPT课件（本地使用，不提交）
+期末复习/fc's ppt/
