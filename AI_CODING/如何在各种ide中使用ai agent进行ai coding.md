@@ -1,4 +1,4 @@
-# 一.[[CODEX]]
+# 一.CODEX
 
 相对最推荐，不需要anthropic的认证和封号的风险
 
@@ -59,7 +59,7 @@ codex --version
 - 由于gptcodex是闭源模型，所以很难将其他第三方api接入codex中使用，但是存在一种可能即通过兼容网关的方式伪装以供codex使用，正在尝试复刻[[NIM4CC的使用及复刻]][nim4cc][[Geek66666/nim4cc: NIM4CC 是一个面向公开使用的 NVIDIA NIM 兼容网关，目标是把 NIM 的 chat/completions 能力转换成更易接入的上层协议，并补上模型目录缓存、调用统计和健康度看板。](https://github.com/Geek66666/nim4cc)
 
 
-# 二.[[COLPILOT]]
+# 二.COPILOT
 
 专供学生使用的GitHub出品的ai coding 插件，支持大量主流模型 codex，gemini，opus的免费使用，cli版本类似Claude Code，但是使用和配置比Claude Code更简单，需要GitHub完成学生认证的账号
 
@@ -72,7 +72,7 @@ codex --version
 
 
 
-# 三.[[CLAUDE CODE+DEEPSEEK]]
+# 三.CLAUDE CODE+DEEPSEEK
 
 ## 1 从0安装claudecode
 

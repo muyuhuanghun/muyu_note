@@ -9,12 +9,12 @@
 		{"id":"b1c2d3e4f5a60041","type":"text","text":"## 📌 推理定律\n- MP: P,P→Q⇒Q\n- 假言三段论\n- 选言三段论\n- 否定后件式","x":-525,"y":650,"width":250,"height":180,"color":"3"},
 		{"id":"b1c2d3e4f5a60012","type":"text","text":"### 第三章 谓词逻辑\n- 量词 ∀∃\n- 🌟 量词否定\n- 前束范式\n- UI/UG/EI/EG","x":-220,"y":372,"width":260,"height":165,"color":"5"},
 		{"id":"b1c2d3e4f5a60010","type":"text","text":"### 第一章 集合论\n- 集合运算\n- 🌟 德·摩根律\n- 幂集 |P(A)|=2ⁿ\n- 包容排斥原理","x":-1000,"y":365,"width":260,"height":195,"color":"5"},
-		{"id":"b1c2d3e4f5a60042","type":"text","text":"## 📌 关系性质\n| 自反 | 对角线全1 |\n| 对称 | 矩阵对称 |\n| 传递 | R²⊆R |\n| 等价 | 自反+对称+传递 |","x":1080,"y":430,"width":280,"height":170,"color":"3"},
-		{"id":"b1c2d3e4f5a60021","type":"text","text":"### 第五章 特殊关系\n- 全序关系\n- 良序关系","x":-60,"y":740,"width":200,"height":115,"color":"4"},
-		{"id":"b1c2d3e4f5a60020","type":"text","text":"### 第四章 二元关系\n- 五种性质\n- 🌟 等价关系\n- 偏序关系\n- Warshall算法","x":200,"y":545,"width":260,"height":190,"color":"4"},
 		{"id":"b1c2d3e4f5a60030","type":"text","text":"### 第六章 图\n- 握手定理\n- 🌟 欧拉图\n- 哈密顿图\n- 树","x":460,"y":630,"width":260,"height":200,"color":"2"},
 		{"id":"b1c2d3e4f5a60031","type":"text","text":"### 第七章 特殊图\n- 二部图\n- 🌟 平面图\n- 着色与色数\n- 四色定理","x":720,"y":365,"width":260,"height":170,"color":"2"},
-		{"id":"b1c2d3e4f5a60043","type":"text","text":"## 📌 图论判定\n- 欧拉: 全偶度\n- 哈密顿: Dirac/Ore\n- 二部: 无奇圈\n- 平面: 不含K₅/K₃,₃","x":920,"y":698,"width":250,"height":200,"color":"3"}
+		{"id":"b1c2d3e4f5a60043","type":"text","text":"## 📌 图论判定\n- 欧拉: 全偶度\n- 哈密顿: Dirac/Ore\n- 二部: 无奇圈\n- 平面: 不含K₅/K₃,₃","x":920,"y":698,"width":250,"height":200,"color":"3"},
+		{"id":"b1c2d3e4f5a60020","type":"text","text":"### 第四章 二元关系\n- 五种性质\n- 🌟 等价关系\n- 偏序关系\n- Warshall算法","x":-90,"y":678,"width":260,"height":190,"color":"4"},
+		{"id":"b1c2d3e4f5a60021","type":"text","text":"### 第五章 特殊关系\n- 全序关系\n- 良序关系","x":200,"y":563,"width":200,"height":135,"color":"4"},
+		{"id":"b1c2d3e4f5a60042","type":"text","text":"## 📌 关系性质\n| 自反 | 对角线全1 |\n| 对称 | 矩阵对称 |\n| 传递 | R²⊆R |\n| 等价 | 自反+对称+传递 |","x":100,"y":980,"width":280,"height":170,"color":"3"}
 	],
 	"edges":[
 		{"id":"b1c2d3e4f5a60101","fromNode":"b1c2d3e4f5a60001","fromSide":"bottom","toNode":"b1c2d3e4f5a60002","toSide":"top"},
