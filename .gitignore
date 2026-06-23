@@ -8,19 +8,11 @@
 *.out
 .vscode/
 
-# 账号和密码相关文件 (敏感信息)
-AI_CODING/pwd.md
-Github/Github Base Info.md
-Github/GitHub Recovery Codes.md
-Github/GitHub_token.canvas
-TENCENT INFO/
-GOOGLE INFO/
-UESTC INFO/
-传统机器学习(结合西瓜书)/all_ipynb/my_mnist.mmap
+# 敏感信息（独立本地 Git 仓库，不推送）
+secrets/
 
-# 研究项目（学术机密，不公开）
-cpp to verilog/
-研究方向调研/
+# 大型数据文件
+传统机器学习(结合西瓜书)/all_ipynb/my_mnist.mmap
 
 # IDE配置
 .idea/
@@ -42,3 +34,6 @@ __pycache__/
 
 # PPT课件（本地使用，不提交）
 期末复习/fc's ppt/
+
+# 嵌套 Git 仓库（独立管理）
+UESTC MOOC/uestc-mooc-helper/
