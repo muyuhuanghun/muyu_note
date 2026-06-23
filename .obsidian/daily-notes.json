@@ -1,6 +1,6 @@
 {
-  "folder": "日记",
+  "folder": "",
   "format": "YYYY-MM-DD",
-  "template": "模板/日记模板",
+  "template": "",
   "autorun": false
 }
