@@ -37,3 +37,6 @@ __pycache__/
 
 # 嵌套 Git 仓库（独立管理）
 UESTC MOOC/uestc-mooc-helper/
+
+# Claude Code 插件（本地开发，不提交）
+.obsidian/plugins/obsidian-claude-code/
