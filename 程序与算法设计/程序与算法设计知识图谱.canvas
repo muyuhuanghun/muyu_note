@@ -1,0 +1,218 @@
+{
+  "nodes": [
+    {
+      "id": "n-overview",
+      "type": "text",
+      "x": -200,
+      "y": -50,
+      "width": 280,
+      "height": 180,
+      "color": "6",
+      "text": "# C语言数据结构实现\n\n项目总入口，涵盖五大模块：\n- 矩阵（三元组存储）\n- 树（二叉树、哈夫曼树）\n- 图（邻接矩阵、邻接表）\n- 查找（BST、哈希表）\n- 排序（选择、快排、堆排）\n\n所有代码通过 `.h` 头文件组织"
+    },
+    {
+      "id": "n-sparse",
+      "type": "file",
+      "file": "程序与算法设计/总结用/01.稀疏矩阵的三元组存储与运算.md",
+      "x": 200,
+      "y": -350,
+      "width": 300,
+      "height": 200
+    },
+    {
+      "id": "n-stack",
+      "type": "file",
+      "file": "程序与算法设计/总结用/04.泛型动态栈.md",
+      "x": 200,
+      "y": 0,
+      "width": 300,
+      "height": 200
+    },
+    {
+      "id": "n-tree",
+      "type": "file",
+      "file": "程序与算法设计/总结用/02.二叉树的构建与遍历.md",
+      "x": 700,
+      "y": -350,
+      "width": 300,
+      "height": 200
+    },
+    {
+      "id": "n-graph",
+      "type": "file",
+      "file": "程序与算法设计/总结用/07.图的邻接表与DFS_BFS遍历.md",
+      "x": 700,
+      "y": 0,
+      "width": 300,
+      "height": 200
+    },
+    {
+      "id": "n-huffman",
+      "type": "file",
+      "file": "程序与算法设计/总结用/03.哈夫曼树与编码.md",
+      "x": 1200,
+      "y": -500,
+      "width": 300,
+      "height": 200
+    },
+    {
+      "id": "n-bst",
+      "type": "file",
+      "file": "程序与算法设计/总结用/06.查找：BST与哈希表.md",
+      "x": 1200,
+      "y": -200,
+      "width": 300,
+      "height": 200
+    },
+    {
+      "id": "n-treehw",
+      "type": "file",
+      "file": "程序与算法设计/总结用/09.二叉树作业：子树删除与最近公共祖先.md",
+      "x": 1200,
+      "y": 100,
+      "width": 300,
+      "height": 200
+    },
+    {
+      "id": "n-dijkstra",
+      "type": "file",
+      "file": "程序与算法设计/总结用/05.图的表示与Dijkstra最短路径.md",
+      "x": 1200,
+      "y": 400,
+      "width": 300,
+      "height": 200
+    },
+    {
+      "id": "n-sort",
+      "type": "file",
+      "file": "程序与算法设计/总结用/08.排序算法：堆排序、快速排序、选择排序.md",
+      "x": 1700,
+      "y": -350,
+      "width": 300,
+      "height": 200
+    },
+    {
+      "id": "n-review",
+      "type": "file",
+      "file": "程序与算法设计/程序与算法设计II 复习综合.md",
+      "x": 1700,
+      "y": 100,
+      "width": 300,
+      "height": 200
+    }
+  ],
+  "edges": [
+    {
+      "id": "e-overview-sparse",
+      "fromNode": "n-overview",
+      "fromSide": "right",
+      "toNode": "n-sparse",
+      "toSide": "left",
+      "label": "矩阵模块"
+    },
+    {
+      "id": "e-overview-stack",
+      "fromNode": "n-overview",
+      "fromSide": "right",
+      "toNode": "n-stack",
+      "toSide": "left",
+      "label": "基础设施"
+    },
+    {
+      "id": "e-stack-tree",
+      "fromNode": "n-stack",
+      "fromSide": "right",
+      "toNode": "n-tree",
+      "toSide": "left",
+      "label": "支持非递归遍历"
+    },
+    {
+      "id": "e-overview-tree",
+      "fromNode": "n-overview",
+      "fromSide": "right",
+      "toNode": "n-tree",
+      "toSide": "left",
+      "label": "树模块"
+    },
+    {
+      "id": "e-overview-graph",
+      "fromNode": "n-overview",
+      "fromSide": "right",
+      "toNode": "n-graph",
+      "toSide": "left",
+      "label": "图模块"
+    },
+    {
+      "id": "e-tree-huffman",
+      "fromNode": "n-tree",
+      "fromSide": "right",
+      "toNode": "n-huffman",
+      "toSide": "left",
+      "label": "二叉树 → 带权路径最优化"
+    },
+    {
+      "id": "e-tree-bst",
+      "fromNode": "n-tree",
+      "fromSide": "right",
+      "toNode": "n-bst",
+      "toSide": "left",
+      "label": "二叉树 → 有序查找"
+    },
+    {
+      "id": "e-tree-treehw",
+      "fromNode": "n-tree",
+      "fromSide": "right",
+      "toNode": "n-treehw",
+      "toSide": "left",
+      "label": "递归应用：子树删除、LCA"
+    },
+    {
+      "id": "e-graph-dijkstra",
+      "fromNode": "n-graph",
+      "fromSide": "right",
+      "toNode": "n-dijkstra",
+      "toSide": "left",
+      "label": "邻接矩阵 → 最短路径"
+    },
+    {
+      "id": "e-bst-sort",
+      "fromNode": "n-bst",
+      "fromSide": "right",
+      "toNode": "n-sort",
+      "toSide": "left",
+      "label": "堆排序依赖树结构"
+    },
+    {
+      "id": "e-tree-sort",
+      "fromNode": "n-tree",
+      "fromSide": "right",
+      "toNode": "n-sort",
+      "toSide": "left",
+      "label": "堆排序的建堆过程"
+    },
+    {
+      "id": "e-sparse-review",
+      "fromNode": "n-sparse",
+      "fromSide": "bottom",
+      "toNode": "n-review",
+      "toSide": "left",
+      "label": "线性表应用题"
+    },
+    {
+      "id": "e-graph-review",
+      "fromNode": "n-graph",
+      "fromSide": "right",
+      "toNode": "n-review",
+      "toSide": "left",
+      "label": "图论综合题"
+    },
+    {
+      "id": "e-sort-review",
+      "fromNode": "n-sort",
+      "fromSide": "bottom",
+      "toNode": "n-review",
+      "toSide": "top",
+      "label": "排序真题汇总"
+    }
+  ]
+}
