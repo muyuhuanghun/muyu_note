@@ -1,6 +1,7 @@
 # Obsidian workspace/graph transient state
 .obsidian/workspace.json
 .obsidian/graph.json
+日记/
 
 # 编译产物与IDE配置
 *.exe
