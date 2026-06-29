@@ -49,7 +49,7 @@ void DeQueue(Queue *Q, int *e) {
 // 初始化图
 void InitGraph(ALGraph *G) {
     int i;
-    G->vexnum = 0;
+    G->vexnum = 0; 
     G->arcnum = 0;
     for (i = 0; i < MAX_VERTEX; i++) {
         G->vertices[i].firstarc = NULL;
