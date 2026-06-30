@@ -61,3 +61,7 @@ void DFSTraverse(ALGraph G);
 void BFSTraverse(ALGraph G);
 
 #endif
+
+//check the correct type of note
+
+//i can't even undeerstand what hapened about the livesynvc system 

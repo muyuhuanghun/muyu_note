@@ -44,7 +44,7 @@ static void encoding(HuffNode ht[] , Tcode book[] , int n)
             }
             idx = p;
         }
-        strcpy(book[i].code , &str[j]);//保存编码字符�??
+        strcpy(book[i].code , &str[j]);//保存编码字符�??
         book[i].lenth = n - j; //保存编码长度
     }
     free(str);

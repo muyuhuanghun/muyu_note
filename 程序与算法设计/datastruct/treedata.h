@@ -286,7 +286,7 @@ static void postorder(BiTree root)
     BiTNode * p = root , * r = NULL;
     stacktree st;
     initstack(&st);
-    while(p!=NULL ||!stackempty(&st))
+    while(p!=NULL ||!stackisempty(&st))
     {
         if(p!=NULL)
         {

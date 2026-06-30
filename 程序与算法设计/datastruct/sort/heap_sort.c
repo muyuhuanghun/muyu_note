@@ -10,3 +10,4 @@ int main()
         printf("%d ", heap_nomal[i]);
     return 0;
 }
+//check the correct type of note    

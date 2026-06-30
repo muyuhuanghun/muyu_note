@@ -185,3 +185,6 @@ int main() {
 
     return 0;
 }
+
+
+//check the correct type of note

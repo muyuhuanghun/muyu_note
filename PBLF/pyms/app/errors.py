@@ -16,3 +16,5 @@ class AppError(Exception):
         self.code = code
         self.message = message or ERROR_MESSAGES.get(code, "unknown error")
         super().__init__(self.message)
+
+'check the correct type of note'

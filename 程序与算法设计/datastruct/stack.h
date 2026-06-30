@@ -5,8 +5,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-/* ¿ÉÅäÖÃµÄÔªËØÀàÐÍ£ºÔÚ°üº¬±¾Í·ÎÄ¼þÖ®Ç°¿ÉÒÔ¶¨Òå `STACK_ELEM_TYPE`£¬
-   ÀýÈç£º#define STACK_ELEM_TYPE double */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½Ôªï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½ï¿½Ú°ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½Ä¼ï¿½Ö®Ç°ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ `STACK_ELEM_TYPE`ï¿½ï¿½
+   ï¿½ï¿½ï¿½ç£º#define STACK_ELEM_TYPE double */
 #ifndef STACK_ELEM_TYPE
 typedef int STACK_ELEM_TYPE;
 #else
@@ -22,11 +22,11 @@ typedef STACK_ELEM_TYPE STACK_ELEM_TYPE;
 
 typedef struct {
 	STACK_ELEM_TYPE *data;
-	size_t size;     /* µ±Ç°ÔªËØÊýÁ¿ */
-	size_t capacity; /* ·ÖÅäÈÝÁ¿ */
+	size_t size;     /* ï¿½ï¿½Ç°Ôªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+	size_t capacity; /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 } Stack;
 
-/* ³õÊ¼»¯Õ»£¨·ÖÅä capacity »òÄ¬ÈÏÈÝÁ¿£©£¬·µ»Ø STACK_OK »ò STACK_ERR */
+/* ï¿½ï¿½Ê¼ï¿½ï¿½Õ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ capacity ï¿½ï¿½Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ STACK_OK ï¿½ï¿½ STACK_ERR */
 static inline int StackInit(Stack *s, size_t capacity) {
 	if (!s) return STACK_ERR;
 	if (capacity == 0) capacity = STACK_INITIAL_CAPACITY;
@@ -37,7 +37,7 @@ static inline int StackInit(Stack *s, size_t capacity) {
 	return STACK_OK;
 }
 
-/* ÊÍ·ÅÕ»Õ¼ÓÃÄÚ´æ */
+/* ï¿½Í·ï¿½Õ»Õ¼ï¿½ï¿½ï¿½Ú´ï¿½ */
 static inline void StackDestroy(Stack *s) {
 	if (!s) return;
 	free(s->data);
@@ -46,17 +46,17 @@ static inline void StackDestroy(Stack *s) {
 	s->capacity = 0;
 }
 
-/* ÊÇ·ñÎª¿Õ£¨·µ»Ø 1 ±íÊ¾¿Õ£© */
+/* ï¿½Ç·ï¿½Îªï¿½Õ£ï¿½ï¿½ï¿½ï¿½ï¿½ 1 ï¿½ï¿½Ê¾ï¿½Õ£ï¿½ */
 static inline int StackIsEmpty(const Stack *s) {
 	return (!s || s->size == 0) ? 1 : 0;
 }
 
-/* µ±Ç°ÔªËØ¸öÊý */
+/* ï¿½ï¿½Ç°Ôªï¿½Ø¸ï¿½ï¿½ï¿½ */
 static inline size_t StackSize(const Stack *s) {
 	return s ? s->size : 0;
 }
 
-/* ÄÚ²¿£ºÈ·±£ÖÁÉÙÓÐ min_capacity ÈÝÁ¿£¬Ê§°Ü·µ»Ø STACK_ERR */
+/* ï¿½Ú²ï¿½ï¿½ï¿½È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ min_capacity ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Ü·ï¿½ï¿½ï¿½ STACK_ERR */
 static inline int StackEnsureCapacity(Stack *s, size_t min_capacity) {
 	if (!s) return STACK_ERR;
 	if (s->capacity >= min_capacity) return STACK_OK;
@@ -69,7 +69,7 @@ static inline int StackEnsureCapacity(Stack *s, size_t min_capacity) {
 	return STACK_OK;
 }
 
-/* ÈëÕ»£º·µ»Ø STACK_OK »ò STACK_ERR */
+/* ï¿½ï¿½Õ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ STACK_OK ï¿½ï¿½ STACK_ERR */
 static inline int StackPush(Stack *s, STACK_ELEM_TYPE val) {
 	if (!s) return STACK_ERR;
 	if (s->size >= s->capacity) {
@@ -79,7 +79,7 @@ static inline int StackPush(Stack *s, STACK_ELEM_TYPE val) {
 	return STACK_OK;
 }
 
-/* ³öÕ»£ºÈç¹û·Ç¿Õ½«ÖµÐ´Èë out£¨¿ÉÎª NULL£©²¢·µ»Ø STACK_OK£¬·ñÔò·µ»Ø STACK_ERR */
+/* ï¿½ï¿½Õ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿Õ½ï¿½ÖµÐ´ï¿½ï¿½ outï¿½ï¿½ï¿½ï¿½Îª NULLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ STACK_OKï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½ STACK_ERR */
 static inline int StackPop(Stack *s, STACK_ELEM_TYPE *out) {
 	if (!s || s->size == 0) return STACK_ERR;
 	s->size--;
@@ -87,20 +87,20 @@ static inline int StackPop(Stack *s, STACK_ELEM_TYPE *out) {
 	return STACK_OK;
 }
 
-/* È¡Õ»¶¥£º²»µ¯³ö£¬³É¹¦·µ»Ø STACK_OK£¬·ñÔò·µ»Ø STACK_ERR */
+/* È¡Õ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ STACK_OKï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½ STACK_ERR */
 static inline int StackTop(const Stack *s, STACK_ELEM_TYPE *out) {
 	if (!s || s->size == 0 || !out) return STACK_ERR;
 	*out = s->data[s->size - 1];
 	return STACK_OK;
 }
 
-/* Çå¿ÕÕ»µ«²»ÊÍ·ÅÄÚ´æ */
+/* ï¿½ï¿½ï¿½Õ»ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½Ú´ï¿½ */
 static inline void StackClear(Stack *s) {
 	if (!s) return;
 	s->size = 0;
 }
 
-/* ½»»»Á½¸öÕ»µÄÄÚÈÝ£¨O(1)£© */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ»ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½O(1)ï¿½ï¿½ */
 static inline void StackSwap(Stack *a, Stack *b) {
 	if (!a || !b) return;
 	Stack tmp = *a;
