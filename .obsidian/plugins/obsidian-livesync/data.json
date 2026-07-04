@@ -69,13 +69,13 @@
   "syncAfterMerge": false,
   "configPassphraseStore": "",
   "encryptedPassphrase": "",
-  "encryptedCouchDBConnection": "%$7IIV4o9/WDtLq88x0URcLJMPokTeL+10zmoyt7HHPDufZr0Rv/YoW29t5kfMc+o2XJG4s4t9uw5wdMerjBWdYJW8aJFCPcZXWdgERN8vI7eXuuwnl4ixBC5T/JMwnYnOw3jVpqkm44apAN+ttQN3Ffh6e4Aaa6+0MRkp6iBwCmZEOSstxPNKHk4DomB+vf7ArFAGOhdiwcaGsN3NlajeIcPobb/1HggqMpfY14ejwVzyiAJQhi56bmHpg6bMPPxKgdvdOrHMf+kNnzLInPTfSctIfn+poyLq173xKJaLAe3MzCOmfBznAnzh5ksw5Pa4Jnims1IR9oGESxebRiPPUo9j/IuT7mH3bixndYtGfd62XbvnW5v06oJeRGCKKnE0m4s5haHGa639YgnWq0hduaPDfC4cmOYJrOP5d2iiJfc+9iwEspLn9vHwMLIHKrmkFIhaYYPAhgUwNjcRSPCB7ED6MXqWjJ6iE2mPvkb95G+K18ogWAdxfmhi68DS7w1nGAmRTPG0WKhuiuwjVqpTh6Y7Xu8IbicCmzj1EPwKqJpd7vfkkuicAcLkTJ7RiFMlNZsk+rSk3NluKVXLChtwXkkKcf3AeQ7pZ77lPLGYcPebwLP/syEdrCdswFFcOCjj9ADyHtGImK7sXvBBJTMIIU3bLxXIRyqw77oJL6uqgRiQFbA5z5vGWH+ird79FFJEUlm+V2wKK2g=",
+  "encryptedCouchDBConnection": "%$oU1N/FDLvRlmWf5RMvQPAXdVbEfqY68SieBktNP8bFo7J9euiYYqPG4eoMyVfgu5yglgJYMGmAiVw5TZ8bEcqJClo03PRAj/07SBN5ayeZvKbEcULh0FeqyzuudJuqboydUjnT+UmJv9VndMHhJpm/L8s7cfLB/UsMWgGH7ap+6PxEdHpTsC1OiDcBopnYyc1AcQDBVl/8L4i6fCZAY8/bCuLK8q8mvyPSkRaAmwlOkTUr8SFg1cfT7jFF+B774cp9XZbThDh5bH1OlsloreR3x6KMLbLKbE2PXWxz6KxIGzcjk6Dqum0BQjziwgJteeGmV+IO6DDf1W0vtWQrvpUq0WDXOHk01sdTBjqe16VINlSakyeFSRSPjZ4wO1ENbaVEdFL/zJK8TyyvVY44tpFZFLBQpSt8oahd1xsVxIOhYUpqTfIl8tZoe6Kp6pINtDc1lASBNEq3/2t2oq31vgV3WhBAtFZ8pCkFr4DFVv0xaat4KTGlhBwBDBIif12JapHarHT/4C8PvSiNIlddplFXIuhmz29jxaWczL64Jw8UJ3JN0Bx3MMlRvZAuwRKBrfilYDlLJpMLQdV4n1adb8One3KV2C6N4Ni01JmdWzDleqr33iXNjHByDL6lLSf6OBjZ3U3CyqV9+rr0j/sCE75+NgI44174UJIv9LwyKwlzCg4E7Dy8O1kyKNyTKpNLKNBKM0oSO3nsA=",
   "permitEmptyPassphrase": false,
   "remoteConfigurations": {
     "legacy-couchdb": {
       "id": "legacy-couchdb",
       "name": "CouchDB Remote",
-      "uri": "%$7IIV4o9/WDtLq88x0URcLJMPokTeL+10zmoyt7HHPDu+NbmWiZfDITdUymN/uc4XQo3PQVCgEjQI8uIOeidU1E9vjONcKmuVI6Hm/NA+ZoJesmZ0JLCrPYr9pFXpaWkoTHkyGkvhV0Do81bQuehxSoOexdXtlKeY5BVGRR7fu4Gj9n/6Kh57wlVb1TTlMJpBkx115RUI5jt/8YQ9cEPd+B+rXg==",
+      "uri": "%$oU1N/FDLvRlmWf5RMvQPAXdVbEfqY68SieBktNP8bFqICey7ZoFZ9ANrs6JxPVhdcZf9Y6fOk5d00hG18mp0Sv8g43fayK2LziQRS9N0rgtjeJYQUhauaoieEf7wlXUoR5HSp9Rner0dZuwY9v53zULewrJCTikYFWfM8DY9z0HZ3F12ijf+DbDkKCb4a11zjhqjdeEfP4FxgvKmGt13tDEr7w==",
       "isEncrypted": true
     }
   },
@@ -95,7 +95,7 @@
   "useIgnoreFiles": false,
   "ignoreFiles": ".gitignore",
   "syncOnEditorSave": false,
-  "keepReplicationActiveInBackground": true,
+  "keepReplicationActiveInBackground": false,
   "pluginSyncExtendedSetting": {},
   "syncMaxSizeInMB": 50,
   "settingSyncFile": "",
@@ -171,5 +171,5 @@
   "syncInternalFileOverwritePatterns": "",
   "useOnlyLocalChunk": false,
   "maxMTimeForReflectEvents": 0,
-  "tweakModified": 1782721582209
+  "tweakModified": 1782873330333
 }
