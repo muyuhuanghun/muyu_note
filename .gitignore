@@ -46,3 +46,6 @@ UESTC MOOC/uestc-mooc-helper/
 
 # 插件 node_modules
 .obsidian/plugins/*/node_modules/
+
+# FreeFileSync 同步数据库（临时文件）
+/sync.ffs_db
