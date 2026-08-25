@@ -1,6 +1,6 @@
 {
 	"nodes":[
-		{"id":"b1c2d3e4f5a60001","type":"file","file":"期末复习/离散数学/离散数学完整复习.md","x":0,"y":0,"width":400,"height":100,"color":"6"},
+		{"id":"b1c2d3e4f5a60001","type":"file","file":"other learning/大一下期末复习/离散数学/离散数学完整复习.md","x":0,"y":0,"width":400,"height":100,"color":"6"},
 		{"id":"b1c2d3e4f5a60002","type":"text","text":"## 基础理论\n集合论 + 逻辑","x":-500,"y":200,"width":200,"height":70,"color":"5"},
 		{"id":"b1c2d3e4f5a60003","type":"text","text":"## 关系理论\n二元关系 + 特殊关系","x":0,"y":200,"width":200,"height":70,"color":"4"},
 		{"id":"b1c2d3e4f5a60004","type":"text","text":"## 图论\n图 + 特殊图","x":500,"y":200,"width":200,"height":70,"color":"2"},

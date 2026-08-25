@@ -1,6 +1,6 @@
 {
 	"nodes":[
-		{"id":"a1b2c3d4e5f60001","type":"file","file":"期末复习/近代史/近代史完整复习.md","x":0,"y":0,"width":400,"height":100,"color":"6"},
+		{"id":"a1b2c3d4e5f60001","type":"file","file":"other learning/大一下期末复习/近代史/近代史完整复习.md","x":0,"y":0,"width":400,"height":100,"color":"6"},
 		{"id":"a1b2c3d4e5f60002","type":"text","text":"## 上篇：旧民主主义革命\n(1840-1919)","x":-500,"y":200,"width":250,"height":80,"color":"1"},
 		{"id":"a1b2c3d4e5f60003","type":"text","text":"## 下篇：新民主主义革命\n(1919-1949)","x":500,"y":200,"width":250,"height":80,"color":"4"},
 		{"id":"a1b2c3d4e5f60011","type":"text","text":"### 第二章 早期探索\n- 太平天国：农民阶级\n- 洋务运动：地主阶级\n- 戊戌变法：资产阶级维新派","x":-420,"y":400,"width":280,"height":160,"color":"2"},

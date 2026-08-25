@@ -1,0 +1,73 @@
+{
+  "nodes": [
+    {
+      "id": "title",
+      "type": "text",
+      "text": "# 🚀 VSCode 替代 Keil5 工具链\n\n开源组合拆解 Keil 四合一 IDE：\n编辑器 + GCC编译 + OpenOCD调试 + 器件包",
+      "x": 400,
+      "y": -260,
+      "width": 360,
+      "height": 120,
+      "color": "5"
+    },
+    {
+      "id": "main_doc",
+      "type": "file",
+      "file": "01.VSCode替代Keil搭建STM32开发环境.md",
+      "x": 400,
+      "y": 0,
+      "width": 360,
+      "height": 260,
+      "color": "2"
+    },
+    {
+      "id": "tools",
+      "type": "text",
+      "text": "🌟 核心四件套\n- VSCode（编辑器）\n- GNU Arm Toolchain (arm-none-eabi-gcc)\n- OpenOCD（调试/烧录后端）\n- STM32CubeMX（生成工程）\n\n插件：STM32 VS Code Ext / C-C++ / Cortex-Debug",
+      "x": 20,
+      "y": -120,
+      "width": 330,
+      "height": 220,
+      "color": "3"
+    },
+    {
+      "id": "config",
+      "type": "text",
+      "text": "🔧 三个配置文件\n- tasks.json：build / clean / flash\n- launch.json：Cortex-Debug + OpenOCD\n- *.cfg：interface + target 认芯片\n- .svd：外设寄存器视图",
+      "x": 20,
+      "y": 160,
+      "width": 330,
+      "height": 200,
+      "color": "4"
+    },
+    {
+      "id": "debug",
+      "type": "text",
+      "text": "🐞 在线调试实战\n- F5 启动 → 停 main\n- 断点 / 单步 / 变量 / 内存\n- 外设视图翻转 GPIO.ODR 看 LED\n- 改码 → Ctrl+Shift+B → F5 下板",
+      "x": 780,
+      "y": -120,
+      "width": 330,
+      "height": 200,
+      "color": "6"
+    },
+    {
+      "id": "pit",
+      "type": "text",
+      "text": "⚠️ 坑 & 课程关联\n- ARMCC≠GCC 二进制\n- ST-Link 驱动 / target not halted\n- 中文/空格路径过敏\n- TI 平台(课)→CCS 不可替代\n- STM32自玩→VSCode 完全够",
+      "x": 780,
+      "y": 160,
+      "width": 330,
+      "height": 220,
+      "color": "1"
+    }
+  ],
+  "edges": [
+    { "id": "e1", "fromNode": "title", "fromSide": "bottom", "toNode": "main_doc", "toSide": "top", "color": "5" },
+    { "id": "e2", "fromNode": "main_doc", "fromSide": "left", "toNode": "tools", "toSide": "right", "color": "3" },
+    { "id": "e3", "fromNode": "main_doc", "fromSide": "left", "toNode": "config", "toSide": "right", "color": "4" },
+    { "id": "e4", "fromNode": "main_doc", "fromSide": "right", "toNode": "debug", "toSide": "left", "color": "6" },
+    { "id": "e5", "fromNode": "main_doc", "fromSide": "right", "toNode": "pit", "toSide": "left", "color": "1" },
+    { "id": "e6", "fromNode": "tools", "fromSide": "bottom", "toNode": "config", "toSide": "top", "color": "4" }
+  ],
+  "text": ""
+}

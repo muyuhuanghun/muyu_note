@@ -69,13 +69,13 @@
   "syncAfterMerge": false,
   "configPassphraseStore": "",
   "encryptedPassphrase": "",
-  "encryptedCouchDBConnection": "%$oU1N/FDLvRlmWf5RMvQPAXdVbEfqY68SieBktNP8bFo7J9euiYYqPG4eoMyVfgu5yglgJYMGmAiVw5TZ8bEcqJClo03PRAj/07SBN5ayeZvKbEcULh0FeqyzuudJuqboydUjnT+UmJv9VndMHhJpm/L8s7cfLB/UsMWgGH7ap+6PxEdHpTsC1OiDcBopnYyc1AcQDBVl/8L4i6fCZAY8/bCuLK8q8mvyPSkRaAmwlOkTUr8SFg1cfT7jFF+B774cp9XZbThDh5bH1OlsloreR3x6KMLbLKbE2PXWxz6KxIGzcjk6Dqum0BQjziwgJteeGmV+IO6DDf1W0vtWQrvpUq0WDXOHk01sdTBjqe16VINlSakyeFSRSPjZ4wO1ENbaVEdFL/zJK8TyyvVY44tpFZFLBQpSt8oahd1xsVxIOhYUpqTfIl8tZoe6Kp6pINtDc1lASBNEq3/2t2oq31vgV3WhBAtFZ8pCkFr4DFVv0xaat4KTGlhBwBDBIif12JapHarHT/4C8PvSiNIlddplFXIuhmz29jxaWczL64Jw8UJ3JN0Bx3MMlRvZAuwRKBrfilYDlLJpMLQdV4n1adb8One3KV2C6N4Ni01JmdWzDleqr33iXNjHByDL6lLSf6OBjZ3U3CyqV9+rr0j/sCE75+NgI44174UJIv9LwyKwlzCg4E7Dy8O1kyKNyTKpNLKNBKM0oSO3nsA=",
+  "encryptedCouchDBConnection": "%$xQpSqZoJ57OPXtzHYFFJZEM0BoDhc33ukYPYXfhRjL3BumYQKgujiTNNZu7Jbo6Qh6wJi394i4WxuS4PHvO/m4vVDP0h7u+wviyw+Jk3jTBqhGyHcbXbH9CeEwZ8BbOTQRfSHd29Ng87T0dAu+fztAl1CP6rAGO2+8DpHQi6zrUZg/DbNKAwnwg/8X882SBykJnhOv4CRDiTs0sQCuTIeUPfnAttKGzZLANumBHmSGarUjk4KYIAYHiqmBAXCQfbDnX36vALa0hiP6HTu6Amo8DBT2ra7HwLEvee0b8AdmaQRDmzvMktK/ThtttkS6XNY+/hJZfsBPsMyJtQj8JGtS9t5A25miOSJuQfqqs7oFDKtenkm9WhYozxw0JnahzSrompQWaJu8I4Ek8hRVcIakr300JxxweqCPjtAc4W0Dm7SH0bt89B/k8PHDl5u32nG2UVL7H3OUCW4HwZ2GyJv+J4P1k1CRM/UvoZrx2pW8KLaz9MbsQCP7RsG24iJjeI6LUUVRG26iYhBfRlPm/OO+2Erh2bP9QM7x0BXFP6JlNEwH4YulBjyXUXxe2BP0rK1r9XbSVlWMCQUzNiUMCzkRoisg0bhukSVUVitHoXWDnBV2AB1PamIEi+eraQg8JcAJ5opOmLhF9+CXQqhVkLQGboHAAcsSXktCrqCh8F5Vn+Pd8tYqiEHCAn6+SVZvcD65t9+fDiCBg=",
   "permitEmptyPassphrase": false,
   "remoteConfigurations": {
     "legacy-couchdb": {
       "id": "legacy-couchdb",
       "name": "CouchDB Remote",
-      "uri": "%$oU1N/FDLvRlmWf5RMvQPAXdVbEfqY68SieBktNP8bFqICey7ZoFZ9ANrs6JxPVhdcZf9Y6fOk5d00hG18mp0Sv8g43fayK2LziQRS9N0rgtjeJYQUhauaoieEf7wlXUoR5HSp9Rner0dZuwY9v53zULewrJCTikYFWfM8DY9z0HZ3F12ijf+DbDkKCb4a11zjhqjdeEfP4FxgvKmGt13tDEr7w==",
+      "uri": "%$xQpSqZoJ57OPXtzHYFFJZEM0BoDhc33ukYPYXfhRjL3GVz2RwrXSeAv2My3UyoWMs+0lAU2KROyHnmDSBi/6hY3Y3ajkTtVNHYXnbrEbAitmI0u0hytpI9YIgqQ9NY/uARpd0Es0UVmNR/SMSvNdq+zxZTpGyKFYLJic6vhrvAl7bQGdxe+4/x17bfVCEL+cHp9HsIhwzVWxsP1+A2iBSvdj4g==",
       "isEncrypted": true
     }
   },
