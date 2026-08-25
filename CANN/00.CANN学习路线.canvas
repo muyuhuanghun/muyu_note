@@ -1,0 +1,29 @@
+{
+	"nodes":[
+		{"id":"193f882dbc4b2e78","type":"text","text":"# CANN 学习中心\n\n从 NPU / CANN 基础走向 Ascend C 算子、推理优化与通信实践。","x":0,"y":0,"width":360,"height":180,"color":"5"},
+		{"id":"1a918b01bf2f8591","type":"file","file":"CANN/01.CANN基础/00.章节索引.md","x":460,"y":0,"width":340,"height":200,"color":"1"},
+		{"id":"6a2ee09ebe319cee","type":"file","file":"CANN/02.快速上手/00.章节索引.md","x":880,"y":0,"width":340,"height":200,"color":"2"},
+		{"id":"3062416948e22c63","type":"file","file":"CANN/03.AscendC算子开发/00.章节索引.md","x":1300,"y":0,"width":340,"height":200,"color":"3"},
+		{"id":"85b1119e78f5710c","type":"file","file":"CANN/04.大模型推理/00.章节索引.md","x":460,"y":260,"width":340,"height":200,"color":"4"},
+		{"id":"40373eed6d2272d0","type":"file","file":"CANN/05.专题算子/00.章节索引.md","x":880,"y":260,"width":340,"height":200,"color":"5"},
+		{"id":"52f43d8c3222196b","type":"file","file":"CANN/06.HiXL单边通信/00.章节索引.md","x":1300,"y":260,"width":340,"height":200,"color":"6"},
+		{"id":"9f8aac863c6918fa","type":"file","file":"CANN/07.社区实战/00.章节索引.md","x":460,"y":520,"width":340,"height":200,"color":"1"},
+		{"id":"fe1705febfe3d6f3","type":"file","file":"CANN/08.参考实践/00.章节索引.md","x":880,"y":520,"width":340,"height":200,"color":"2"},
+		{"id":"249f7c1920f17d87","type":"file","file":"CANN/09.技术博客/00.章节索引.md","x":1300,"y":520,"width":340,"height":200,"color":"3"},
+		{"id":"336024f757e5563a","type":"file","file":"CANN/10.指南与规范/00.章节索引.md","x":460,"y":780,"width":340,"height":200,"color":"4"},
+		{"id":"1c1138eb1e6b2135","type":"file","file":"CANN/11.Skills与示例/00.章节索引.md","x":880,"y":780,"width":340,"height":200,"color":"5"}
+	],
+	"edges":[
+		{"id":"bb66e5bb553ed74a","fromNode":"193f882dbc4b2e78","fromSide":"right","toNode":"1a918b01bf2f8591","toSide":"left","label":"学习路径"},
+		{"id":"54015ec19e2488b5","fromNode":"193f882dbc4b2e78","fromSide":"right","toNode":"6a2ee09ebe319cee","toSide":"left","label":"学习路径"},
+		{"id":"fdb319bb8f04464f","fromNode":"193f882dbc4b2e78","fromSide":"right","toNode":"3062416948e22c63","toSide":"left","label":"学习路径"},
+		{"id":"ae6b9f5fa0948f3a","fromNode":"193f882dbc4b2e78","fromSide":"right","toNode":"85b1119e78f5710c","toSide":"left","label":"学习路径"},
+		{"id":"210988652ac41020","fromNode":"193f882dbc4b2e78","fromSide":"right","toNode":"40373eed6d2272d0","toSide":"left","label":"学习路径"},
+		{"id":"da340069436daee7","fromNode":"193f882dbc4b2e78","fromSide":"right","toNode":"52f43d8c3222196b","toSide":"left","label":"学习路径"},
+		{"id":"dc2271e93c0ef00c","fromNode":"193f882dbc4b2e78","fromSide":"right","toNode":"9f8aac863c6918fa","toSide":"left","label":"学习路径"},
+		{"id":"71edad081506acf1","fromNode":"193f882dbc4b2e78","fromSide":"right","toNode":"fe1705febfe3d6f3","toSide":"left","label":"学习路径"},
+		{"id":"8fa4badc65293fa3","fromNode":"193f882dbc4b2e78","fromSide":"right","toNode":"249f7c1920f17d87","toSide":"left","label":"学习路径"},
+		{"id":"6f9978a6886ee323","fromNode":"193f882dbc4b2e78","fromSide":"right","toNode":"336024f757e5563a","toSide":"left","label":"学习路径"},
+		{"id":"0120abcafe8d0385","fromNode":"193f882dbc4b2e78","fromSide":"right","toNode":"1c1138eb1e6b2135","toSide":"left","label":"学习路径"}
+	]
+}
