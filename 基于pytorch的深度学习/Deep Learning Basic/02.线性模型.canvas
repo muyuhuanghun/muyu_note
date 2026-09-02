@@ -11,7 +11,7 @@
 		{"id":"4be958a06078fb42","type":"text","text":"2.Model","x":-420,"y":240,"width":250,"height":60},
 		{"id":"b0402ad1dfdb5532","type":"text","text":"4.inferring(推理)","x":-80,"y":920,"width":250,"height":60},
 		{"id":"0f8e8b597bb2bddd","type":"text","text":"3.Training","x":-420,"y":920,"width":234,"height":60},
-		{"id":"4e522c426cb674ed","type":"text","text":"what would be the bset  model for the data","x":-420,"y":420,"width":250,"height":60},
+		{"id":"4e522c426cb674ed","type":"text","text":"what would be the best  model for the data","x":-420,"y":420,"width":250,"height":60},
 		{"id":"c3dbba7587f51512","type":"text","text":"Linear Model","x":-80,"y":420,"width":250,"height":60},
 		{"id":"47d39561be136dbb","type":"text","text":"$$\n\\hat{y} = x * \\omega +b\n$$","x":270,"y":420,"width":250,"height":60},
 		{"id":"3be9dd5346d2cf3a","type":"text","text":"the machine starts with a random guess,omega = random value","x":599,"y":400,"width":250,"height":101},
