@@ -49,3 +49,7 @@ UESTC MOOC/uestc-mooc-helper/
 
 # FreeFileSync 同步数据库（临时文件）
 /sync.ffs_db
+
+# 临时输出与空文件（不提交）
+/theia.md
+/phase1-smoke-output/
