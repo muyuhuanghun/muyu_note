@@ -18,7 +18,7 @@ CCS12 是老版本（Eclipse 风格），CCS Theia 和 CCS 21.0.1 是新一代�
 | CCS Theia 1.5.x | VSCode 风格 | `C:\ti\ccstheia151` | 课程设计、新工程 |
 | CCS 21.0.1 | VSCode 风格 | `C:\ti\ccs2100` | 想用最新版的可以试 |
 
-💡 课程当前使用老款 MSP-EXP430G2 + MSP430G2553。CCS 能编译该工程，但截至 2026-09-02，F5 调试仍卡在板载调试器初始化阶段；详见本文第十一节。建议**只装一套**，避免下面"问题 4"里讲的混乱。
+💡 课程当前使用老款 MSP-EXP430G2 + MSP430G2553。2026-09-02 已确认：板子直连本机 AMD USB 3.x/xHCI 路径时会稳定卡在板载调试器初始化；通过联想 `BY01-2.0` USB 2.0 Hub 转接后，DSLite 连续只读和 CCS 两次独立 F5 均成功。详见本文第十一节。建议**只装一套**，避免下面"问题 4"里讲的混乱。
 
 ## 下载链接
 
@@ -341,10 +341,10 @@ Get-ChildItem -Path C:\Users\muyuhuanghun -Recurse -Filter "*.ccsproject" -Error
 
 ---
 
-# 十一、2026-09-02 当前故障状态：F5 无法初始化板载调试器
+# 十一、2026-09-02 故障闭环：BY01-2.0 解决 F5 初始化失败
 
 > [!summary] 当前结论
-> 故障**尚未修复**。当前概率最高的原因是老款 MSP-EXP430G2 板载 eZ430 调试器与本机 AMD USB 3.x/xHCI 路径存在兼容问题，但这仍是待验证假设，不是已经闭环的结论。正在等待联想 `BY01-2.0` 真 USB 2.0 Hub 到货，进行只改变 USB 路径的 A/B 测试。
+> 故障已通过联想 `BY01-2.0` USB 2.0 Hub **完成本机 A/B 闭环并恢复使用**。板子直连 AMD USB 3.x/xHCI 路径时，`MSP430_Initialize` 稳定等待约 95 秒后返回 error 57；加入真正的 USB 2.0 Hub 后，两次全新 DSLite 进程分别约 6.81 秒、6.29 秒完成只读，CCS Theia 1.5.1 中两次独立 F5 也都成功下载并停在 `main():71`。因此，本机根因可以高置信度归为**老款 MSP-EXP430G2 板载 eZ430/TUSB3410 与当前 AMD USB 3.x/xHCI 路径的兼容问题**，不是全局中断、用户程序、COM9 占用或驱动文件错误。
 
 ## 11.1 当前环境
 
@@ -357,7 +357,7 @@ Get-ChildItem -Path C:\Users\muyuhuanghun -Recurse -Filter "*.ccsproject" -Error
 | 目标芯片 | MSP430G2553 |
 | UART | `MSP430 Application UART (COM9)`，状态 OK |
 | 调试接口 | `MSP430 Debug-Interface` / HID，状态 OK |
-| 当前 USB 主机路径 | AMD USB 3.10 xHCI，`PCI\VEN_1022&DEV_15B7` |
+| 当前可用 USB 路径 | MSP-EXP430G2 → `USB2.0 HUB`（`VID_1A40&PID_0101`）→ AMD USB 3.10 xHCI（`PCI\VEN_1022&DEV_15B7`） |
 | CCS 目标配置 | `TI MSP430 USB1` + `MSP430G2553.ccxml` |
 
 ## 11.2 现象
@@ -408,7 +408,7 @@ C:\Users\muyuhuanghun\Desktop\lesson_design\artifacts\board-connect-20260902-000
 | 方向 | 证据与结论 |
 | --- | --- |
 | 忘记打开全局中断 | 与 F5 连接错误无关；连接失败发生在目标程序运行之前。源码中也已经有 `IE2 |= UCA0RXIE;` 和 `__enable_interrupt();`。GIE 只影响 UART 接收中断/回显。 |
-| CCS 工程或 `launch.json` | 使用同一份 `MSP430G2553.ccxml` 的 DSLite 命令行能独立复现，因此 GUI 启动配置不是当前主因。 |
+| CCS 工程或 `launch.json` | 使用同一份 `MSP430G2553.ccxml` 的 DSLite 命令行能独立复现原始 error 57，因此 GUI 启动配置不是硬件连接失败的主因。不过混合多个工程的多根工作区会另行造成启动项错配和 `Missing debug configuration properties`；最终已改为只打开正确工程的外层工作区。 |
 | COM9 被占用 | .NET SerialPort 独占打开测试成功；微软 Sysinternals Handle 审计也没有发现 COM9 句柄。 |
 | HID 接口被占用 | Handle 对 `VID_0451&PID_F432` 返回 `No matching handles found`；HIDClass 没有 UpperFilters/LowerFilters。 |
 | 驱动文件错误 | 已安装 `oem132.inf`，原始文件 `430CDC.inf`，TI 1.5.0.0；其 SHA-256 与 CCS 自带版本完全一致。 |
@@ -420,7 +420,7 @@ C:\Users\muyuhuanghun\Desktop\lesson_design\artifacts\board-connect-20260902-000
 
 现场人工确认过：使用原装线、主机 USB 口、SSCOM 已关闭、没有额外外围连线，J101/SBW 跳线已压紧。这些属于人工检查结果，不等同于示波器级信号完整性验证。
 
-## 11.5 为什么当前优先怀疑 USB 3.x/xHCI
+## 11.5 为什么怀疑 USB 3.x/xHCI，以及如何确认
 
 当前设备拓扑显示，板子直接挂在：
 
@@ -434,9 +434,9 @@ USB\ROOT_HUB30\5&6148D45&0&0
 
 TI 支持论坛存在同款老 MSP-EXP430G2、同类 error 57 的历史案例：TI 工程师在 USB 2.0 口测试成功，并把 USB 3.0/xHCI 列为重点嫌疑；另有用户更换 USB 主机控制器后恢复稳定连接。这证明“老 eZ430 与某些 USB 3.x/xHCI 路径不兼容”不是凭空猜测。
 
-但 error 57 本身只是通用初始化错误，不能单靠错误文本确认根因。因此当前只能写成：
+error 57 本身只是通用初始化错误，不能单靠错误文本确认根因。Hub 到货前，只能把 USB 路径写成“最高概率假设”；2026-09-02 的本机 A/B 测试补上了决定性证据：
 
-> USB 3.x/xHCI 兼容问题是**概率最高、已有历史案例支持、尚待本机 A/B 验证**的假设。
+> 直连时稳定约 95 秒超时；只增加 `BY01-2.0` 这一层 USB 2.0 Hub 后，DSLite 连续成功且 CCS 两次 F5 成功。其他软件、工程、目标芯片和 USB 线没有随 A/B 测试改变。因此本机可以高置信度确认是老 eZ430 与当前 AMD USB 3.x/xHCI 路径的兼容性问题。上游设备管理器仍显示 xHCI 是正常的；关键是 LaunchPad 与 xHCI 之间多出了一层真正的 USB 2.0 Hub。
 
 ## 11.6 已做的系统修改及备份
 
@@ -448,11 +448,9 @@ C:\Users\muyuhuanghun\Desktop\lesson_design\artifacts\usb-power-backup-20260902-
 
 这些修改重启后仍然生效，但没有消除 error 57，因此“Windows 省电是主因”的假设已经被显著削弱。该备份可用于后续回滚。
 
-## 11.7 下一步：联想 BY01-2.0 A/B 测试
+## 11.7 联想 BY01-2.0 A/B 测试结果
 
-已选择联想 `BY01-2.0`，它是 USB-A 上行、4 个 USB-A 下行的真正 USB 2.0 Hub。推荐 0.25 米短线版。
-
-连接方式：
+实际使用联想 `BY01-2.0`，连接方式如下：
 
 ```text
 笔记本右侧 USB-A
@@ -462,26 +460,42 @@ C:\Users\muyuhuanghun\Desktop\lesson_design\artifacts\usb-power-backup-20260902-
 MSP-EXP430G2
 ```
 
-首次验证时，Hub 上只接 LaunchPad，不接鼠标、U 盘或其他设备。验证顺序必须固定：
+验证结果：
 
-1. 关闭 CCS 和串口助手。
-2. 通过 BY01-2.0 插入板子。
-3. 用 Windows PnP 信息确认设备拓扑中确实多出一层 USB 2.0 Hub，而不是仍然直连根集线器。
-4. 用 DSLite 只读 `0xFFFE,2`，不烧写。
-5. 连续做两次只读连接，排除“偶然成功一次”。
-6. 打开 CCS，正常 Build 后按 F5。
-7. 正常 Terminate，再次 F5，验证会话释放后的第二次连接。
+1. Windows PnP 拓扑确认中间层确实是 `USB2.0 HUB`，设备实例为 `USB\VID_1A40&PID_0101\6&4b29c3c&0&1`。LaunchPad 的 UART 仍为 COM9，HID 与 UART 均为 `Status=OK`。
+2. 第一次 Hub 后 DSLite 试验约 7.41 秒就完成了调试器连接，随后只因旧测试范围 `0xFFFE,2` 越过 16 位地址空间上界而在“Reading memory”阶段失败；这一次已经足以证明原来的 error 57 没有出现，但不能算完整只读 PASS。
+3. 把安全只读范围改为 `0xFFFC,2` 后，两个完全全新的 DSLite 进程连续返回 `EXIT_CODE=0`，耗时分别为 6810 ms 和 6290 ms，读回数据均为 `66 C0 52 C0`。
+4. CCS Theia 1.5.1 中重新编译正确工程，输出 `**** Build Finished ****`。两次独立 F5 都显示 `MSP430 HALTED`，调用栈为 `main() 0xC000`，源码位置 `msp430g2xx3_uscia0_uart_01_115k.c:71:12`。最终使用调试工具栏的红色 Stop 按钮退出，会话消失且 CCS 保持打开。
 
-判定规则：
+对应证据目录：
 
-- 如果经过 Hub 后连接从约 95 秒超时变成几秒内成功，连续只读与两次 F5 都成功，可以基本确认根因是老 eZ430 与当前 AMD USB 3.x/xHCI 路径的兼容性。
-- 如果经过 Hub 后仍稳定停在 `MSP430_Initialize` 并报 error 57，不能继续把问题都归因于 USB 3.0；下一步应在另一台电脑上交叉验证，再考虑官方老 LaunchPad 固件恢复工具或板载 eZ430/TUSB3410 硬件故障。
+```text
+C:\Users\muyuhuanghun\Desktop\lesson_design\artifacts\board-connect-usb2hub-20260902-201915-run1
+C:\Users\muyuhuanghun\Desktop\lesson_design\artifacts\board-connect-usb2hub-20260902-202000-run2
+C:\Users\muyuhuanghun\Desktop\lesson_design\artifacts\board-connect-usb2hub-20260902-202027-run3
+```
+
+### 验证中额外发现的 CCS 工作区问题
+
+把正确工程临时加入原先同时包含多个 `msp430x20x3_P1_01` 工程的多根工作区时，Debug 下拉框会生成名称和工程交叉组合的启动项；选错后会出现：
+
+```text
+'launch.json' is not a valid JSON file. Missing debug configuration properties.
+```
+
+这个提示不是板子连接再次失败，因为它发生在进入 MSP430 调试器初始化之前，也没有 error 57。处理办法是只打开正确工程的外层工作区：
+
+```text
+C:\Users\muyuhuanghun\Desktop\lesson_design\documents\msp430g2xx3_uscia0_uart_01_115k
+```
+
+重开 CCS 后，左侧只剩工程 `msp430g2xx3_uscia0_uart_01_115k`，Debug 下拉框也只剩同名启动项；随后 F5 正常成功。
 
 ## 11.8 当前状态用语
 
 截至 2026-09-02，准确状态是：
 
-> CCS 编译正常；Windows 能枚举 UART 与 HID；PC 到板载 eZ430 的初始化稳定失败；用户程序与全局中断不是本次 F5 错误的原因；USB 3.x/xHCI 是最高概率但尚未验证闭环的根因；等待 BY01-2.0 到货完成决定性测试。
+> CCS 编译和 F5 调试均已恢复；板子经联想 BY01-2.0 连接时，DSLite 连续两次只读成功、CCS 两次独立 F5 成功并停在 `main():71`，最终 Stop 正常释放会话。用户程序与全局中断不是原始 F5 错误的原因；本机已通过 A/B 测试高置信度确认老款 MSP-EXP430G2 板载 eZ430/TUSB3410 与 AMD USB 3.x/xHCI 路径存在兼容问题。日常使用应保留 BY01-2.0，并只打开正确工程的外层工作区。
 
 ---
 
@@ -498,4 +512,4 @@ MSP-EXP430G2
 
 ## 一句话总结
 
-💡 装好一套 CCS、固定一个工作区根目录、Debug 前别随意清缓存、拔 USB 前先 Terminate，是正常工作流；但老款 MSP-EXP430G2 还要额外关注 eZ430 与现代 USB 3.x/xHCI 的兼容性。当前故障尚待 BY01-2.0 A/B 测试闭环。
+💡 这次问题已经闭环：老款 MSP-EXP430G2 通过 BY01-2.0 USB 2.0 Hub 接电脑后，DSLite 与 CCS F5 都恢复稳定。以后固定使用这个 Hub、只打开正确工程的外层工作区，拔 USB 前先点红色 Stop 结束调试会话。
