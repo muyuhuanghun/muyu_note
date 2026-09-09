@@ -53,3 +53,9 @@ UESTC MOOC/uestc-mooc-helper/
 # 临时输出与空文件（不提交）
 /theia.md
 /phase1-smoke-output/
+
+# 个人实习准备计划（仅本地维护，不提交）
+/个人计划/2026-09-06_实习准备阶段计划.md
+
+# 量化教材原版 PDF（版权书籍，仅本地阅读，不提交）
+量化交易入门(X)/*.pdf
